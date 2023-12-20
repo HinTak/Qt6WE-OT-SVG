@@ -1,0 +1,38 @@
+diff --git a/chromium/skia/BUILD.gn b/chromium/skia/BUILD.gn
+index 4bdb828..5d7a4e6 100644
+--- a/chromium/skia/BUILD.gn
++++ b/chromium/skia/BUILD.gn
+@@ -12,6 +12,7 @@ import("//printing/buildflags/buildflags.gni")
+ import("//testing/test.gni")
+ import("//third_party/skia/gn/shared_sources.gni")
+ import("//third_party/skia/modules/skcms/skcms.gni")
++import("//third_party/skia/modules/svg/svg.gni")
+ import("//tools/grit/grit_rule.gni")
+ import("features.gni")
+ 
+@@ -474,6 +475,7 @@ component("skia") {
+ 
+   deps += [
+     ":skcms",
++    ":svg",
+     ":skia_opts",
+     "//base",
+     "//base/third_party/dynamic_annotations",
+diff --git a/chromium/skia/ext/fontmgr_default_linux.cc b/chromium/skia/ext/fontmgr_default_linux.cc
+index 76927e7..ed18f0f 100644
+--- a/chromium/skia/ext/fontmgr_default_linux.cc
++++ b/chromium/skia/ext/fontmgr_default_linux.cc
+@@ -7,10 +7,13 @@
+ #include "third_party/skia/include/core/SkFontMgr.h"
+ #include "third_party/skia/include/ports/SkFontConfigInterface.h"
+ #include "third_party/skia/include/ports/SkFontMgr_FontConfigInterface.h"
++#include "third_party/skia/include/core/SkGraphics.h"
++#include "third_party/skia/modules/svg/include/SkSVGOpenTypeSVGDecoder.h"
+ 
+ namespace skia {
+ 
+ SK_API sk_sp<SkFontMgr> CreateDefaultSkFontMgr() {
++  SkGraphics::SetOpenTypeSVGDecoderFactory(SkSVGOpenTypeSVGDecoder::Make);
+   sk_sp<SkFontConfigInterface> fci(SkFontConfigInterface::RefGlobal());
+   return fci ? SkFontMgr_New_FCI(std::move(fci)) : nullptr;
+ }
