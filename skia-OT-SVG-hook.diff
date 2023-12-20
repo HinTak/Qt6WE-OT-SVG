@@ -1,23 +1,16 @@
 diff --git a/chromium/skia/BUILD.gn b/chromium/skia/BUILD.gn
-index 4bdb828..5d7a4e6 100644
+index 4bdb828..6a8e1fa 100644
 --- a/chromium/skia/BUILD.gn
 +++ b/chromium/skia/BUILD.gn
-@@ -12,6 +12,7 @@ import("//printing/buildflags/buildflags.gni")
- import("//testing/test.gni")
- import("//third_party/skia/gn/shared_sources.gni")
- import("//third_party/skia/modules/skcms/skcms.gni")
-+import("//third_party/skia/modules/svg/svg.gni")
- import("//tools/grit/grit_rule.gni")
- import("features.gni")
+@@ -597,6 +597,8 @@ component("skia") {
+     sources += skia_sksg_sources
+     sources += skia_shaper_primitive_sources
+   }
++  import("//third_party/skia/modules/svg/svg.gni")
++  sources += skia_svg_sources
+ }
  
-@@ -474,6 +475,7 @@ component("skia") {
- 
-   deps += [
-     ":skcms",
-+    ":svg",
-     ":skia_opts",
-     "//base",
-     "//base/third_party/dynamic_annotations",
+ # Template for things that are logically part of :skia, but need to be split out
 diff --git a/chromium/skia/ext/fontmgr_default_linux.cc b/chromium/skia/ext/fontmgr_default_linux.cc
 index 76927e7..ed18f0f 100644
 --- a/chromium/skia/ext/fontmgr_default_linux.cc
