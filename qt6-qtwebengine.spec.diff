@@ -7,7 +7,7 @@ index 458d721..c04b518 100644
  Name:    qt6-qtwebengine
  Version: 6.6.1
 -Release: 1%{?dist}
-+Release: 1p%{?dist}
++Release: 1q%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
