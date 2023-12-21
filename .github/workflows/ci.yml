@@ -21,6 +21,7 @@ jobs:
       - run: cp skia-m112-OT-SVG-hook.patch ~/rpmbuild/SOURCES/
       - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb qt6-qtwebengine.spec && popd
       - run: df
+      - run: rm -f /github/home/rpmbuild/RPMS/x86_64/*debug*
       - run: cp -r /github/home/rpmbuild/RPMS .
       - uses: actions/upload-artifact@v3
         with:
