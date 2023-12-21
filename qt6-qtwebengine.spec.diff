@@ -16,7 +16,7 @@ index 458d721..c04b518 100644
  Patch110: qtwebengine-blink-dlopen-h264.patch
  
 +## OT-SVG
-+Patch1000: skia-OT-SVG-hook.patch
++Patch1000: skia-m112-OT-SVG-hook.patch
 +
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
