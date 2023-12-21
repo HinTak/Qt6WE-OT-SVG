@@ -17,8 +17,8 @@ jobs:
       - run: du
       - run: rpm -ivh a.rpm
       - uses: actions/checkout@v4
-      - run: patch /github/home/rpmbuild/SPEC/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
-      - run: cp skia-OT-SVG-hook.patch /github/home/rpmbuild/SOURCES/
+      - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
+      - run: cp skia-OT-SVG-hook.patch ~/rpmbuild/SOURCES/
       - run: pushd /github/home/rpmbuild/SPEC && rpmbuild -bb qt6-qtwebengine.spec && popd
       - run: du
       - run: cp -r /github/home/rpmbuild/RPMS .
