@@ -10,17 +10,17 @@ jobs:
     container: fedora:39
     steps:
       - run: cat /etc/os-release
-      - run: du
+      - run: df
       - run: dnf install -y curl dnf-utils rpm-build
       - run: curl -o a.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.6.1/1.fc40/src/qt6-qtwebengine-6.6.1-1.fc40.src.rpm
       - run: dnf builddep -y --srpm a.rpm
-      - run: du
+      - run: df
       - run: rpm -ivh a.rpm
       - uses: actions/checkout@v4
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
       - run: cp skia-OT-SVG-hook.patch ~/rpmbuild/SOURCES/
       - run: pushd /github/home/rpmbuild/SPEC && rpmbuild -bb qt6-qtwebengine.spec && popd
-      - run: du
+      - run: df
       - run: cp -r /github/home/rpmbuild/RPMS .
       - uses: actions/upload-artifact@v3
         with:
