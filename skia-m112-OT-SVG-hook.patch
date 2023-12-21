@@ -23,9 +23,9 @@ index 4bdb828..899a761 100644
 +  #     skia_use_expat is already done
 +  #     not needing "src/svg/SkSVGCanvas.cpp", "src/svg/SkSVGDevice.cpp"
 +  sources += [
-+    "src/xml/SkDOM.cpp",
-+    "src/xml/SkXMLParser.cpp",
-+    "src/xml/SkXMLWriter.cpp",
++    "//third_party/skia/src/xml/SkDOM.cpp",
++    "//third_party/skia/src/xml/SkXMLParser.cpp",
++    "//third_party/skia/src/xml/SkXMLWriter.cpp",
 +  ]
  }
  
