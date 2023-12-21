@@ -1,5 +1,5 @@
 diff --git a/chromium/skia/BUILD.gn b/chromium/skia/BUILD.gn
-index 4bdb828..97aad3f 100644
+index 4bdb828..899a761 100644
 --- a/src/3rdparty/chromium/skia/BUILD.gn
 +++ b/src/3rdparty/chromium/skia/BUILD.gn
 @@ -359,9 +359,6 @@ component("skia") {
@@ -12,12 +12,21 @@ index 4bdb828..97aad3f 100644
    if (is_win) {
      libs = [ "fontsub.lib" ]
    }
-@@ -597,6 +594,8 @@ component("skia") {
+@@ -597,6 +594,17 @@ component("skia") {
      sources += skia_sksg_sources
      sources += skia_shaper_primitive_sources
    }
 +  import("//third_party/skia/modules/svg/svg.gni")
 +  sources += skia_svg_sources
++  # partial inclusion of the xml option:
++  #     public_defines = SK_XML does nothing
++  #     skia_use_expat is already done
++  #     not needing "src/svg/SkSVGCanvas.cpp", "src/svg/SkSVGDevice.cpp"
++  sources += [
++    "src/xml/SkDOM.cpp",
++    "src/xml/SkXMLParser.cpp",
++    "src/xml/SkXMLWriter.cpp",
++  ]
  }
  
  # Template for things that are logically part of :skia, but need to be split out
