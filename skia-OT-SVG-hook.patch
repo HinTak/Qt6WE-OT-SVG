@@ -1,8 +1,18 @@
 diff --git a/chromium/skia/BUILD.gn b/chromium/skia/BUILD.gn
-index 4bdb828..6a8e1fa 100644
+index 4bdb828..97aad3f 100644
 --- a/src/3rdparty/chromium/skia/BUILD.gn
 +++ b/src/3rdparty/chromium/skia/BUILD.gn
-@@ -597,6 +597,8 @@ component("skia") {
+@@ -359,9 +359,6 @@ component("skia") {
+     deps += [ "//third_party/wuffs" ]
+   }
+ 
+-  # Remove unused util sources.
+-  sources -= [ "//third_party/skia/src/utils/SkParsePath.cpp" ]
+-
+   if (is_win) {
+     libs = [ "fontsub.lib" ]
+   }
+@@ -597,6 +594,8 @@ component("skia") {
      sources += skia_sksg_sources
      sources += skia_shaper_primitive_sources
    }
