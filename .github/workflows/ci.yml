@@ -11,7 +11,7 @@ jobs:
     steps:
       - run: cat /etc/os-release
       - run: df
-      - run: dnf install -y curl dnf-utils rpm-build
+      - run: dnf install -y dnf-utils rpm-build
       - run: curl -o a.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.6.1/1.fc40/src/qt6-qtwebengine-6.6.1-1.fc40.src.rpm
       - run: dnf builddep -y --srpm a.rpm
       - run: df
