@@ -48,6 +48,26 @@ index 76927e7..ed18f0f 100644
    sk_sp<SkFontConfigInterface> fci(SkFontConfigInterface::RefGlobal());
    return fci ? SkFontMgr_New_FCI(std::move(fci)) : nullptr;
  }
+diff --git a/chromium/third_party/blink/renderer/platform/fonts/web_font_decoder.cc b/chromium/third_party/blink/renderer/platform/fonts/web_font_decoder.cc
+index 7a9b5855..a87ddc98 100644
+--- a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_decoder.cc
++++ b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_decoder.cc
+@@ -104,6 +104,7 @@ ots::TableAction BlinkOTSContext::GetTableAction(uint32_t tag) {
+   const uint32_t kCpalTag = OTS_TAG('C', 'P', 'A', 'L');
+   const uint32_t kCff2Tag = OTS_TAG('C', 'F', 'F', '2');
+   const uint32_t kSbixTag = OTS_TAG('s', 'b', 'i', 'x');
++  const uint32_t kSvg_Tag = OTS_TAG('S', 'V', 'G', ' ');
+ #if HB_VERSION_ATLEAST(1, 0, 0)
+   const uint32_t kGdefTag = OTS_TAG('G', 'D', 'E', 'F');
+   const uint32_t kGposTag = OTS_TAG('G', 'P', 'O', 'S');
+@@ -130,6 +131,7 @@ ots::TableAction BlinkOTSContext::GetTableAction(uint32_t tag) {
+     case kCpalTag:
+     case kCff2Tag:
+     case kSbixTag:
++    case kSvg_Tag:
+ #if HB_VERSION_ATLEAST(1, 0, 0)
+     // Let HarfBuzz handle how to deal with broken tables.
+     case kAvarTag:
 diff --git a/chromium/third_party/ots/src/src/ots.cc b/chromium/third_party/ots/src/src/ots.cc
 index 5d1e07a9..b1529e8b 100644
 --- a/src/3rdparty/chromium/third_party/ots/src/src/ots.cc
