@@ -80,33 +80,6 @@ index 5d1e07a9..b1529e8b 100644
    } else {
        return OTS_FAILURE_MSG_HDR("no supported glyph data table(s) present");
    }
-diff --git a/chromium/third_party/skia/src/ports/SkFontHost_FreeType.cpp b/chromium/third_party/skia/src/ports/SkFontHost_FreeType.cpp
-index 5051310f..9996a75a 100644
---- a/src/3rdparty/chromium/third_party/skia/src/ports/SkFontHost_FreeType.cpp
-+++ b/src/3rdparty/chromium/third_party/skia/src/ports/SkFontHost_FreeType.cpp
-@@ -60,6 +60,8 @@
- #include <freetype/t1tables.h>
- #include <freetype/ftfntfmt.h>
- 
-+#include "modules/svg/include/SkSVGOpenTypeSVGDecoder.h"
-+
- using namespace skia_private;
- 
- namespace {
-@@ -998,9 +1000,13 @@ SkScalerContext_FreeType::SkScalerContext_FreeType(sk_sp<SkTypeface_FreeType> ty
-         // FT_LOAD_COLOR with scalable fonts means allow SVG.
-         // It also implies attempt to render COLR if available, but this is not used.
- #if defined(FT_CONFIG_OPTION_SVG)
-+        if (!SkGraphics::GetOpenTypeSVGDecoderFactory())
-+            SkGraphics::SetOpenTypeSVGDecoderFactory(SkSVGOpenTypeSVGDecoder::Make);
-         if (SkGraphics::GetOpenTypeSVGDecoderFactory()) {
-             fLoadGlyphFlags |= FT_LOAD_COLOR;
-         }
-+#else
-+#error "FT_CONFIG_OPTION_SVG not on"
- #endif
-     } else if (FT_HAS_FIXED_SIZES(fFaceRec->fFace)) {
-         fStrikeIndex = chooseBitmapStrike(fFaceRec->fFace.get(), scaleY);
 diff --git a/chromium/third_party/skia/src/ports/SkScalerContext_win_dw.cpp b/chromium/third_party/skia/src/ports/SkScalerContext_win_dw.cpp
 index d88757a0..344ff8b1 100644
 --- a/src/3rdparty/chromium/third_party/skia/src/ports/SkScalerContext_win_dw.cpp
