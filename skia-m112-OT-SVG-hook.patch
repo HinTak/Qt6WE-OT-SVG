@@ -48,8 +48,20 @@ index 76927e7..ed18f0f 100644
    sk_sp<SkFontConfigInterface> fci(SkFontConfigInterface::RefGlobal());
    return fci ? SkFontMgr_New_FCI(std::move(fci)) : nullptr;
  }
+diff --git a/chromium/third_party/ots/src/src/ots.cc b/chromium/third_party/ots/src/src/ots.cc
+index 5d1e07a9..b1529e8b 100644
+--- a/src/3rdparty/chromium/third_party/ots/src/src/ots.cc
++++ b/src/3rdparty/chromium/third_party/ots/src/src/ots.cc
+@@ -757,6 +757,7 @@ bool ProcessGeneric(ots::FontFile *header,
+              font->GetTable(OTS_TAG('C','B','L','C'))) {
+       // We don't sanitize bitmap tables, but don’t reject bitmap-only fonts if
+       // we are asked to pass them thru.
++  } else if (font->GetTable(OTS_TAG('S','V','G',' '))) {
+   } else {
+       return OTS_FAILURE_MSG_HDR("no supported glyph data table(s) present");
+   }
 diff --git a/chromium/third_party/skia/src/ports/SkFontHost_FreeType.cpp b/chromium/third_party/skia/src/ports/SkFontHost_FreeType.cpp
-index 5051310..9996a75 100644
+index 5051310f..9996a75a 100644
 --- a/src/3rdparty/chromium/third_party/skia/src/ports/SkFontHost_FreeType.cpp
 +++ b/src/3rdparty/chromium/third_party/skia/src/ports/SkFontHost_FreeType.cpp
 @@ -60,6 +60,8 @@
@@ -76,7 +88,7 @@ index 5051310..9996a75 100644
      } else if (FT_HAS_FIXED_SIZES(fFaceRec->fFace)) {
          fStrikeIndex = chooseBitmapStrike(fFaceRec->fFace.get(), scaleY);
 diff --git a/chromium/third_party/skia/src/ports/SkScalerContext_win_dw.cpp b/chromium/third_party/skia/src/ports/SkScalerContext_win_dw.cpp
-index d88757a..344ff8b 100644
+index d88757a0..344ff8b1 100644
 --- a/src/3rdparty/chromium/third_party/skia/src/ports/SkScalerContext_win_dw.cpp
 +++ b/src/3rdparty/chromium/third_party/skia/src/ports/SkScalerContext_win_dw.cpp
 @@ -43,6 +43,8 @@
