@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
       - run: cp skia-m112-OT-SVG-hook.patch ~/rpmbuild/SOURCES/
-      - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb qt6-qtwebengine.spec && popd
+      - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
       - run: find ~/rpmbuild/BUILD -type f -name "platform_jumbo_29.cc" -print -exec cp {} ~/rpmbuild/RPMS \;
       - run: df
       - run: rm -f ~/rpmbuild/RPMS/x86_64/*debug*
