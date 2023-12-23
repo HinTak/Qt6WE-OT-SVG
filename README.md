@@ -14,6 +14,10 @@
 2023-12-23T08:02:48
 ```
 
+```
+qt6-qtwebengine-6.6.1-1s 6.6.1 112.0.5615.213 119.0.6045.123
+```
+
 github container inherited environment:
 
 ```
