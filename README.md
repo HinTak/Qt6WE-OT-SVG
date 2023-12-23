@@ -28,7 +28,7 @@ CI=true
 
 ```
 Filesystem     1K-blocks     Used Available Use% Mounted on
-overlay         87204404 60572268  26615752  70% /
+overlay         87204404 60572200  26615820  70% /
 ```
 
 source rpm is 378MB.
@@ -37,12 +37,12 @@ source rpm is 378MB.
 
 ```
 Filesystem     1K-blocks     Used Available Use% Mounted on
-overlay         87204404 62927984  24260036  73% /
+overlay         87204404 62928520  24259500  73% /
 ```
 
-After build:
+After build (--noclean):
 
 ```
 Filesystem     1K-blocks     Used Available Use% Mounted on
-overlay         87204404 63227136  23960884  73% /
+overlay         87204404 77630316   9557704  90% /
 ```
