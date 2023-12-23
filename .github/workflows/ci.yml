@@ -20,9 +20,10 @@ jobs:
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
       - run: cp skia-m112-OT-SVG-hook.patch ~/rpmbuild/SOURCES/
       - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb qt6-qtwebengine.spec && popd
+      - run: find ~/rpmbuild/BUILD -type f -name "platform_jumbo_29.cc" -print -exec cp {} ~/rpmbuild/RPMS \;
       - run: df
-      - run: rm -f /github/home/rpmbuild/RPMS/x86_64/*debug*
-      - run: cp -r /github/home/rpmbuild/RPMS .
+      - run: rm -f ~/rpmbuild/RPMS/x86_64/*debug*
+      - run: cp -r ~/rpmbuild/RPMS .
       - uses: actions/upload-artifact@v3
         with:
           name: rpms
