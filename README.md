@@ -52,3 +52,10 @@ overlay         87204404 77630316   9557704  90% /
 ```
 /github/home/rpmbuild/BUILD/qtwebengine-everywhere-src-6.6.1/redhat-linux-build/src/core/RelWithDebInfo/x86_64/gen/third_party/blink/renderer/platform/platform_jumbo_29.cc
 ```
+
+```
+$ xzcat .../qtwebengine-everywhere-src-6.7.0-beta1.tar.xz | dd of=/dev/null
+7276320+0 records in
+7276320+0 records out
+3725475840 bytes (3.7 GB, 3.5 GiB) copied, 53.3683 s, 69.8 MB/s
+```
