@@ -1,5 +1,5 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 458d721..1f86a89 100644
+index 458d721..3901524 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -48,7 +48,7 @@
@@ -40,7 +40,7 @@ index 458d721..1f86a89 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -375,7 +379,7 @@ popd
+@@ -375,16 +379,20 @@ popd
  %patch3 -p1 -b .aarch64-new-stat
  %patch4 -p1 -b .qtwebengine-ffmpeg-first_dts
  
@@ -49,17 +49,21 @@ index 458d721..1f86a89 100644
  %if 0%{?fedora} && 0%{?fedora} >= 39
  %patch60 -p1 -b .fix-py-imp.patch
  %endif
-@@ -386,6 +390,10 @@ popd
- ## upstreamable patches
- %patch110 -p1 -b .blink-dlopen-h264
  
+ ## upstream patches
+-%patch100 -p1 -b .webrtc-dlopen-h264
++#%patch100 -p1 -b .webrtc-dlopen-h264
+ 
+ ## upstreamable patches
+-%patch110 -p1 -b .blink-dlopen-h264
++#%patch110 -p1 -b .blink-dlopen-h264
++
 +## OT-SVG
 +%patch1000 -p1 -b .OT-SVG
 +%patch1001 -p1 -b .OT-SVG2
-+
+ 
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
- sed -i -e '/toolprefix = /d' -e 's/\${toolprefix}//g' \
 @@ -426,7 +434,7 @@ cp -p src/3rdparty/chromium/LICENSE LICENSE.Chromium
  . /opt/rh/gcc-toolset-12/enable
  %endif
