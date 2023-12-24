@@ -1,5 +1,5 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 458d721..4b3a85a 100644
+index 458d721..1f86a89 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -48,7 +48,7 @@
@@ -40,6 +40,15 @@ index 458d721..4b3a85a 100644
  
  mv pulse src/3rdparty/chromium/
  
+@@ -375,7 +379,7 @@ popd
+ %patch3 -p1 -b .aarch64-new-stat
+ %patch4 -p1 -b .qtwebengine-ffmpeg-first_dts
+ 
+-%patch50 -p1 -b .fix-build.patch
++#%patch50 -p1 -b .fix-build.patch
+ %if 0%{?fedora} && 0%{?fedora} >= 39
+ %patch60 -p1 -b .fix-py-imp.patch
+ %endif
 @@ -386,6 +390,10 @@ popd
  ## upstreamable patches
  %patch110 -p1 -b .blink-dlopen-h264
