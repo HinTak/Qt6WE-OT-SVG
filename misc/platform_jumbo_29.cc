@@ -2,6 +2,9 @@
 
 /* Generated with merge_for_jumbo.py. */
 
+#include "../../../../../src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/shaping/stretchy_operator_shaper.cc"
+#include "../../../../../src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/simple_font_data.cc"
+#include "../../../../../src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/skia/font_cache_skia.cc"
 #include "../../../../../src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/skia/skia_text_metrics.cc"
 #include "../../../../../src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/skia/sktypeface_factory.cc"
 #include "../../../../../src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/small_caps_iterator.cc"
