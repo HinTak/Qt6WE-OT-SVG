@@ -27,21 +27,12 @@ index bedc83f2..2d84bcff 100644
    if (is_win) {
      libs = [ "fontsub.lib" ]
    }
-@@ -656,6 +653,17 @@ component("skia") {
+@@ -656,6 +653,8 @@ component("skia") {
      sources += skia_sksg_sources
      sources += skia_shaper_primitive_sources
    }
 +  import("//third_party/skia/modules/svg/svg.gni")
 +  sources += skia_svg_sources
-+  # partial inclusion of the xml option:
-+  #     public_defines = SK_XML does nothing
-+  #     skia_use_expat is already done
-+  #     not needing "src/svg/SkSVGCanvas.cpp", "src/svg/SkSVGDevice.cpp"
-+  sources += [
-+    "//third_party/skia/src/xml/SkDOM.cpp",
-+    "//third_party/skia/src/xml/SkXMLParser.cpp",
-+    "//third_party/skia/src/xml/SkXMLWriter.cpp",
-+  ]
  }
  
  # Template for things that are logically part of :skia, but need to be split out
