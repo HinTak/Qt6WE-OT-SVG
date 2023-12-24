@@ -24,6 +24,7 @@ jobs:
       - run: dnf install -y wget
       - run: wget https://download.qt.io/development_releases/qt/6.7/6.7.0-beta1/submodules/qtwebengine-everywhere-src-6.7.0-beta1.tar.xz
       - run: cp ~/rpmbuild/SOURCES/*.sh ~/rpmbuild/SOURCES/*.py .
+      - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
       - run: ./clean_qtwebengine.sh 6.7.0-beta1
       - run: cp 000*.patch ~/rpmbuild/SOURCES/
       - run: mv qtwebengine-everywhere-src-6.7.0-beta1-clean.tar.xz ~/rpmbuild/SOURCES/
