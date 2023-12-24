@@ -1,7 +1,16 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 458d721..3901524 100644
+index 458d721..e76113a 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
+@@ -18,7 +18,7 @@
+ %global use_system_py_six 1
+ %endif
+ 
+-%global use_system_re2 1
++%global use_system_re2 0
+ 
+ # NEON support on ARM (detected at runtime) - disable this if you are hitting
+ # FTBFS due to e.g. GCC bug https://bugzilla.redhat.com/show_bug.cgi?id=1282495
 @@ -48,7 +48,7 @@
  
  Summary: Qt6 - QtWebEngine components
