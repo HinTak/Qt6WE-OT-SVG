@@ -1,37 +1,39 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 458d721..1c2fd31 100644
+index 458d721..8b990c6 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
-@@ -49,7 +49,7 @@
+@@ -48,7 +48,7 @@
+ 
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
- Version: 6.6.1
--Release: 1%{?dist}
-+Release: 1t%{?dist}
+-Version: 6.6.1
++Version: 6.7.0-beta1
+ Release: 1%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
- # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
-@@ -94,6 +94,9 @@ Patch100: qtwebengine-webrtc-dlopen-h264.patch
+@@ -94,6 +94,10 @@ Patch100: qtwebengine-webrtc-dlopen-h264.patch
  ## Upstreamable patches:
  Patch110: qtwebengine-blink-dlopen-h264.patch
  
 +## OT-SVG
-+Patch1000: skia-m112-OT-SVG-hook.patch
++Patch1000: 0001-m118-OT-SVG-hook.patch
++Patch1001: 0002-m118-use-FreeType-for-non-Linux.patch
 +
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
  # 32-bit arches not supported (https://bugreports.qt.io/browse/QTBUG-102143)
-@@ -386,6 +389,9 @@ popd
+@@ -386,6 +390,10 @@ popd
  ## upstreamable patches
  %patch110 -p1 -b .blink-dlopen-h264
  
 +## OT-SVG
 +%patch1000 -p1 -b .OT-SVG
++%patch1001 -p1 -b .OT-SVG2
 +
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
  sed -i -e '/toolprefix = /d' -e 's/\${toolprefix}//g' \
-@@ -426,7 +432,7 @@ cp -p src/3rdparty/chromium/LICENSE LICENSE.Chromium
+@@ -426,7 +434,7 @@ cp -p src/3rdparty/chromium/LICENSE LICENSE.Chromium
  . /opt/rh/gcc-toolset-12/enable
  %endif
  export STRIP=strip
