@@ -22,6 +22,7 @@
 
 ```
 qt6-qtwebengine-6.6.1-1s 6.6.1 112.0.5615.213 119.0.6045.123
+qt6-qtwebengine-6.7.0-1  6.7.0 118.0.5993.124 119.0.6045.160
 ```
 
 github container inherited environment:
