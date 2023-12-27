@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths-ignore:
       - README.md
+#  tags:
+#    - Qt6WE-OT-SVG*
 
 jobs:
   fedora-job:
