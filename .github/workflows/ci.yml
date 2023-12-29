@@ -4,6 +4,7 @@ on:
   push:
     paths-ignore:
       - README.md
+      - .github/**
     tags:
       - Qt6WE-OT-SVG*
 
