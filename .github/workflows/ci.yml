@@ -23,7 +23,6 @@ jobs:
       - run: rpm -ivh a.rpm
       - uses: actions/checkout@v4
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
-      - run: cp skia-m112-OT-SVG-hook.patch ~/rpmbuild/SOURCES/
       - run: dnf install -y wget
       - run: wget https://download.qt.io/development_releases/qt/6.7/6.7.0-beta1/submodules/qtwebengine-everywhere-src-6.7.0-beta1.tar.xz
       - run: cp ~/rpmbuild/SOURCES/*.sh ~/rpmbuild/SOURCES/*.py .
