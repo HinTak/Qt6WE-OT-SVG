@@ -1,3 +1,17 @@
+# Chromium/QT WebEngine SVG in OpenType support
+
+This is the set of QT WebEngine patches to address
+Chromium [Issue 306078: SVG in OpenType support](https://bugs.chromium.org/p/chromium/issues/detail?id=306078).
+It was first done for QT 6.6/m112, then moved to QT 6.7 Beta 1/m118. After that, work commences instead with Chromium Stable
+(m120 at the time of writing) at [Chromium OT-SVG patches](https://github.com/HinTak/chromium-mod-CI).
+
+This set of patches modifies the libQt6WebEngine* libraries in the typical QT6 installation.
+Tested with the QT6 browser example in [minimal web browser collections](https://github.com/HinTak/minimal-web-browsers/).
+
+Discussions in [Chromium OT-SVG patches](https://github.com/HinTak/chromium-mod-CI).
+
+## misc
+
 `rpm --rebuild ...` takes 5 hours 23 minutes (NINJAFLAGS=-v -j4):
 
 ```
