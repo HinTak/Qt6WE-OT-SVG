@@ -42,6 +42,15 @@ index 458d721..b94ba59 100644
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
  # 32-bit arches not supported (https://bugreports.qt.io/browse/QTBUG-102143)
+@@ -102,7 +102,7 @@ BuildRequires: qt6-srpm-macros
+ BuildRequires: qt6-qtbase-devel
+ BuildRequires: qt6-qtbase-private-devel
+ # TODO: check of = is really needed or if >= would be good enough -- rex
+-%{?_qt6:Requires: %{_qt6}%{?_isa} = %{_qt6_version}}
++%{?_qt6:Requires: %{_qt6}%{?_isa} >= %{_qt6_version}}
+ BuildRequires: qt6-qtdeclarative-devel
+ BuildRequires: qt6-qtlocation-devel
+ BuildRequires: qt6-qtsensors-devel
 @@ -363,7 +367,7 @@ Summary: Example files for qt6-qtpdf
  %{summary}.
  
