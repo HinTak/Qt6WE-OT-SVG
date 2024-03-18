@@ -23,6 +23,7 @@ Discussions in [Chromium OT-SVG patches](https://github.com/HinTak/chromium-mod-
 qt6-qtwebengine-6.7.0-1  6.7.0 	Chrome based:  118.0.5993.124 	Chrome patched:  119.0.6045.160 # beta 1
 qt6-qtwebengine-6.7.0-2b 6.7.0 	Chrome based:  118.0.5993.124 	Chrome patched:  120.0.6099.109 # beta 2
 qt6-qtwebengine-6.7.0-3b 6.7.0 	Chrome based:  118.0.5993.124 	Chrome patched:  120.0.6099.224 # beta 3
+qt6-qtwebengine-6.7.0-3d 6.7.0 	Chrome based:  118.0.5993.220 	Chrome patched:  122.0.6261.58  # rc
 ```
 
 github container inherited environment:
