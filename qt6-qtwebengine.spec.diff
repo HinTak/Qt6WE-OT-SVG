@@ -1,5 +1,5 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 067fb61..c20c589 100644
+index 067fb61..7c5f59e 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -50,8 +50,8 @@
@@ -13,6 +13,15 @@ index 067fb61..c20c589 100644
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
+@@ -61,7 +61,7 @@ URL:     http://www.qt.io
+ # cleaned tarball with patent-encumbered codecs removed from the bundled FFmpeg
+ # ./qtwebengine-release.sh
+ # ./clean_qtwebengine.sh 6.4.1
+-Source0: qtwebengine-everywhere-src-%{version}-clean.tar.xz
++Source0: qtwebengine-everywhere-src-%{version}-beta1-clean.tar.xz
+ 
+ # cleanup scripts used above
+ Source2: clean_qtwebengine.sh
 @@ -90,6 +90,10 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
  Patch111: qtwebengine-blink-system-openh264.patch
  Patch112: qtwebengine-media-system-openh264.patch
@@ -33,6 +42,15 @@ index 067fb61..c20c589 100644
  BuildRequires: qt6-qtdeclarative-devel
  BuildRequires: qt6-qtlocation-devel
  BuildRequires: qt6-qtsensors-devel
+@@ -364,7 +368,7 @@ Summary: Example files for qt6-qtpdf
+ %{summary}.
+ 
+ %prep
+-%setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}} -a20
++%setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}}-beta1 -a20
+ 
+ mv pulse src/3rdparty/chromium/
+ 
 @@ -384,6 +388,10 @@ popd
  %patch -P111 -p1 -b .blink-system-openh264
  %patch -P112 -p1 -b .media-system-openh264
