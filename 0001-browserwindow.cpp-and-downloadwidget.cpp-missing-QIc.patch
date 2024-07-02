@@ -1,0 +1,65 @@
+From 86b6f2bee3eb34cfd674b410167bae25a47335cf Mon Sep 17 00:00:00 2001
+From: Hin-Tak Leung <htl10@users.sourceforge.net>
+Date: Tue, 2 Jul 2024 16:51:54 +0100
+Subject: [PATCH] browserwindow.cpp and downloadwidget.cpp missing
+ QIcon::ThemeIcon definition
+
+Signed-off-by: Hin-Tak Leung <htl10@users.sourceforge.net>
+---
+ examples/webenginewidgets/simplebrowser/browserwindow.cpp  | 1 +
+ examples/webenginewidgets/simplebrowser/downloadwidget.cpp | 1 +
+ examples/webenginewidgets/simplebrowser/main.cpp           | 1 +
+ examples/webenginewidgets/simplebrowser/tabwidget.h        | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/examples/webenginewidgets/simplebrowser/browserwindow.cpp b/examples/webenginewidgets/simplebrowser/browserwindow.cpp
+index a5a83a2..2363a5c 100644
+--- a/examples/webenginewidgets/simplebrowser/browserwindow.cpp
++++ b/examples/webenginewidgets/simplebrowser/browserwindow.cpp
+@@ -10,6 +10,7 @@
+ #include <QCloseEvent>
+ #include <QEvent>
+ #include <QFileDialog>
++#include <QIcon>
+ #include <QInputDialog>
+ #include <QMenuBar>
+ #include <QMessageBox>
+diff --git a/examples/webenginewidgets/simplebrowser/downloadwidget.cpp b/examples/webenginewidgets/simplebrowser/downloadwidget.cpp
+index 2fb65e1..396c51c 100644
+--- a/examples/webenginewidgets/simplebrowser/downloadwidget.cpp
++++ b/examples/webenginewidgets/simplebrowser/downloadwidget.cpp
+@@ -4,6 +4,7 @@
+ #include "downloadwidget.h"
+ 
+ #include <QFileInfo>
++#include <QIcon>
+ #include <QUrl>
+ #include <QWebEngineDownloadRequest>
+ 
+diff --git a/examples/webenginewidgets/simplebrowser/main.cpp b/examples/webenginewidgets/simplebrowser/main.cpp
+index ff4811e..e6ef27a 100644
+--- a/examples/webenginewidgets/simplebrowser/main.cpp
++++ b/examples/webenginewidgets/simplebrowser/main.cpp
+@@ -4,6 +4,7 @@
+ #include "browser.h"
+ #include "browserwindow.h"
+ #include "tabwidget.h"
++#include <QIcon>
+ #include <QApplication>
+ #include <QLoggingCategory>
+ #include <QWebEngineProfile>
+diff --git a/examples/webenginewidgets/simplebrowser/tabwidget.h b/examples/webenginewidgets/simplebrowser/tabwidget.h
+index a1a893b..e71e48b 100644
+--- a/examples/webenginewidgets/simplebrowser/tabwidget.h
++++ b/examples/webenginewidgets/simplebrowser/tabwidget.h
+@@ -4,6 +4,7 @@
+ #ifndef TABWIDGET_H
+ #define TABWIDGET_H
+ 
++#include <QIcon>
+ #include <QTabWidget>
+ #include <QWebEngineFindTextResult>
+ #include <QWebEnginePage>
+-- 
+2.45.2
+
