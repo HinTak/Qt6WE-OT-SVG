@@ -16,19 +16,6 @@ Reviewed-by: Marc Mutz <marc.mutz@qt.io>
  src/pdf/qtpdfglobal.h    | 19 +------------------
  3 files changed, 4 insertions(+), 18 deletions(-)
 
-diff --git a/src/pdf/CMakeLists.txt b/src/pdf/CMakeLists.txt
-index f51e461ac..8070eb39a 100644
---- a/src/pdf/CMakeLists.txt
-+++ b/src/pdf/CMakeLists.txt
-@@ -38,6 +38,8 @@ qt_internal_add_module(Pdf
-     PUBLIC_LIBRARIES
-         Qt::Core
-         Qt::Gui
-+    GENERATE_CPP_EXPORTS
-+    GENERATE_PRIVATE_CPP_EXPORTS
- )
- 
- add_subdirectory(plugins/imageformats/pdf)
 diff --git a/src/pdf/qpdfdocument_p.h b/src/pdf/qpdfdocument_p.h
 index d52aabe4b..4adbf695e 100644
 --- a/src/pdf/qpdfdocument_p.h
@@ -37,7 +24,7 @@ index d52aabe4b..4adbf695e 100644
  //
  
  #include "qpdfdocument.h"
-+#include "private/qtpdfexports_p.h"
++#include "qtpdfexports.h"
  
  #include "third_party/pdfium/public/fpdfview.h"
  #include "third_party/pdfium/public/fpdf_dataavail.h"
