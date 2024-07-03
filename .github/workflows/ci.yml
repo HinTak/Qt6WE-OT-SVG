@@ -23,8 +23,7 @@ jobs:
       - run: rpm -ivh a.rpm
       - uses: actions/checkout@v4
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
-      - run: dnf install -y wget
-      - run: wget https://download.qt.io/development_releases/qt/6.8/6.8.0-beta1/src/submodules/qtwebengine-everywhere-src-6.8.0-beta1.tar.xz
+      - run: curl --remote-name https://download.qt.io/development_releases/qt/6.8/6.8.0-beta1/src/submodules/qtwebengine-everywhere-src-6.8.0-beta1.tar.xz
       - run: cp ~/rpmbuild/SOURCES/*.sh ~/rpmbuild/SOURCES/*.py .
       - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
       - run: ./clean_qtwebengine.sh 6.8.0-beta1
