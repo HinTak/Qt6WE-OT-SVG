@@ -22,7 +22,7 @@ index 067fb61..7c5f59e 100644
  
  # cleanup scripts used above
  Source2: clean_qtwebengine.sh
-@@ -90,6 +90,13 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
+@@ -90,6 +90,14 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
  Patch111: qtwebengine-blink-system-openh264.patch
  Patch112: qtwebengine-media-system-openh264.patch
  
@@ -30,6 +30,7 @@ index 067fb61..7c5f59e 100644
 +Patch1002: eae0536be815f732a1c11c892d5808ce4113f365.patch
 +Patch1003: 0001-Inlined-Q_DECLARE_EQUALITY_COMPARABLE.patch
 +Patch1004: 0001-browserwindow.cpp-and-downloadwidget.cpp-missing-QIc.patch
++Patch1005: 34f93ea4294e2254c95478521fa9886dfed43910.patch
 +Patch1000: 0001-m118a-OT-SVG-hook.patch
 +Patch1001: 0002-m118-use-FreeType-for-non-Linux.patch
 +
@@ -54,7 +55,7 @@ index 067fb61..7c5f59e 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -384,6 +388,13 @@ popd
+@@ -384,6 +388,14 @@ popd
  %patch -P111 -p1 -b .blink-system-openh264
  %patch -P112 -p1 -b .media-system-openh264
  
@@ -62,6 +63,7 @@ index 067fb61..7c5f59e 100644
 +%patch -P1002 -p1 -R -b .qt6.7compat
 +%patch -P1003 -p1 -b .qt6.7compat.2
 +%patch -P1004 -p1 -b .qt6.7compat.3
++%patch -P1005 -p1 -R -b .qt6.7compat.4
 +%patch -P1000 -p1 -b .OT-SVG
 +%patch -P1001 -p1 -b .OT-SVG2
 +
