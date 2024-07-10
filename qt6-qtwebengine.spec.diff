@@ -47,6 +47,15 @@ index 067fb61..7c5f59e 100644
  BuildRequires: qt6-qtdeclarative-devel
  BuildRequires: qt6-qtlocation-devel
  BuildRequires: qt6-qtsensors-devel
+@@ -315,7 +315,7 @@ Provides: bundled(v8) = 11.8.172.18
+ # http://www.netlib.org/fdlibm/readme
+ Provides: bundled(fdlibm) = 5.3
+ 
+-%{?_qt6_version:Requires: qt6-qtbase%{?_isa} = %{_qt6_version}}
++%{?_qt6_version:Requires: qt6-qtbase%{?_isa} >= %{_qt6_version}}
+ 
+ %description
+ %{summary}.
 @@ -364,7 +368,7 @@ Summary: Example files for qt6-qtpdf
  %{summary}.
  
