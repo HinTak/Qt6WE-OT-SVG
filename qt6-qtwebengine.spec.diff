@@ -1,5 +1,5 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 25087e0..5fa8759 100644
+index 25087e0..042a329 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -50,8 +50,8 @@
@@ -65,7 +65,7 @@ index 25087e0..5fa8759 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -375,7 +384,7 @@ popd
+@@ -375,15 +384,24 @@ popd
  %patch -P2 -p1 -b .link-pipewire
  %patch -P3 -p1 -b .aarch64-new-stat
  
@@ -74,8 +74,10 @@ index 25087e0..5fa8759 100644
  
  ## upstream patches
  
-@@ -384,6 +393,15 @@ popd
- %patch -P111 -p1 -b .blink-system-openh264
+ ## upstreamable patches
+ %patch -P110 -p1 -b .webrtc-system-openh264
+-%patch -P111 -p1 -b .blink-system-openh264
++#%patch -P111 -p1 -b .blink-system-openh264
  %patch -P112 -p1 -b .media-system-openh264
  
 +## OT-SVG
