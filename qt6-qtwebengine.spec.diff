@@ -33,7 +33,7 @@ index 25087e0..042a329 100644
 +Patch1005: 34f93ea4294e2254c95478521fa9886dfed43910.patch
 +Patch1006: 0e2d491b388a0651c54d2505e57fd61e7d6454d0.patch
 +Patch1000: 0001-m122a-OT-SVG-hook.patch
-+Patch1001: 0002-m122-use-FreeType-for-non-Linux.patch
++Patch1001: 0002-m122-use-FreeType-for-non-Linux-OT-SVG-support.patch
 +
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
