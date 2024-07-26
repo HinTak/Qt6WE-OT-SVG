@@ -45,6 +45,7 @@ jobs:
 
   fedora-job:
     runs-on: ubuntu-latest
+    needs: pre-fedora-job
     container: fedora:40
     permissions: write-all
     steps:
