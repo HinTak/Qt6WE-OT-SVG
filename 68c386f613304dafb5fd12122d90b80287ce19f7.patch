@@ -1,0 +1,47 @@
+From 68c386f613304dafb5fd12122d90b80287ce19f7 Mon Sep 17 00:00:00 2001
+From: Alexandru Croitor <alexandru.croitor@qt.io>
+Date: Wed, 17 Jul 2024 17:34:58 +0200
+Subject: [PATCH] CMake: Mark WebEngineCore and Pdf SBOM as incomplete
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+The build system doesn't know about all the Chromium dependencies to
+automatically add them to the generated SBOM, so mark those modules as
+containing incomplete information regarding 3rd party dependencies.
+
+Task-number: QTBUG-122899
+Change-Id: I9475e02a0633e0f6eaa86e1d7d2335e949c7dc97
+Reviewed-by: Kai Köhne <kai.koehne@qt.io>
+Reviewed-by:  Alexey Edelev <alexey.edelev@qt.io>
+(cherry picked from commit 5ae7396128a16cc177c024779dddf1373d7e584a)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/core/api/CMakeLists.txt | 1 +
+ src/pdf/CMakeLists.txt      | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/core/api/CMakeLists.txt b/src/core/api/CMakeLists.txt
+index 2a06baec664..916c219d0a3 100644
+--- a/src/core/api/CMakeLists.txt
++++ b/src/core/api/CMakeLists.txt
+@@ -64,6 +64,7 @@ qt_internal_add_module(WebEngineCore
+     EXTRA_CMAKE_FILES
+         "${CMAKE_CURRENT_LIST_DIR}/${INSTALL_CMAKE_NAMESPACE}WebEngineCoreDeploySupport.cmake"
+     NO_GENERATE_CPP_EXPORTS
++    SBOM_INCOMPLETE_3RD_PARTY_DEPENDENCIES
+ )
+ 
+ set_target_properties(WebEngineCore PROPERTIES QTWEBENGINEPROCESS_NAME ${qtWebEngineProcessName})
+diff --git a/src/pdf/CMakeLists.txt b/src/pdf/CMakeLists.txt
+index 41018e7da3b..eeb84a8e1c7 100644
+--- a/src/pdf/CMakeLists.txt
++++ b/src/pdf/CMakeLists.txt
+@@ -38,6 +38,7 @@ qt_internal_add_module(Pdf
+     PUBLIC_LIBRARIES
+         Qt::Core
+         Qt::Gui
++    SBOM_INCOMPLETE_3RD_PARTY_DEPENDENCIES
+ )
+ 
+ add_subdirectory(plugins/imageformats/pdf)

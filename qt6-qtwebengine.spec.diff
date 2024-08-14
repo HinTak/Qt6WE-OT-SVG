@@ -22,7 +22,7 @@ index 25087e0..042a329 100644
  
  # cleanup scripts used above
  Source2: clean_qtwebengine.sh
-@@ -90,6 +90,16 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
+@@ -90,6 +90,17 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
  Patch111: qtwebengine-blink-system-openh264.patch
  Patch112: qtwebengine-media-system-openh264.patch
  
@@ -33,6 +33,7 @@ index 25087e0..042a329 100644
 +Patch1005: 34f93ea4294e2254c95478521fa9886dfed43910.patch
 +Patch1006: 0e2d491b388a0651c54d2505e57fd61e7d6454d0.patch
 +Patch1007: 6.8-interrim.patch
++Patch1008: 68c386f613304dafb5fd12122d90b80287ce19f7.patch
 +Patch1000: 0001-m122a-OT-SVG-hook.patch
 +Patch1001: 0002-m122-use-FreeType-for-non-Linux-OT-SVG-support.patch
 +
@@ -66,7 +67,7 @@ index 25087e0..042a329 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -375,15 +384,25 @@ popd
+@@ -375,15 +384,26 @@ popd
  %patch -P2 -p1 -b .link-pipewire
  %patch -P3 -p1 -b .aarch64-new-stat
  
@@ -82,6 +83,7 @@ index 25087e0..042a329 100644
  %patch -P112 -p1 -b .media-system-openh264
  
 +## OT-SVG
++%patch -P1008 -p1 -R -b .qt6.7compat.6
 +%patch -P1002 -p1 -R -b .qt6.7compat
 +%patch -P1003 -p1 -b .qt6.7compat.2
 +%patch -P1004 -p1 -b .qt6.7compat.3
