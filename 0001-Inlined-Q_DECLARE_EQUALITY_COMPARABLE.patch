@@ -13,7 +13,7 @@ index 34b72e0..95ad122 100644
 --- a/src/core/api/qwebengineframe.h
 +++ b/src/core/api/qwebengineframe.h
 @@ -59,7 +59,12 @@ public:
-         return lhs.m_adapterClient == rhs.m_adapterClient && lhs.m_id == rhs.m_id;
+         return lhs.m_adapter == rhs.m_adapter && lhs.m_id == rhs.m_id;
      }
  
 -    Q_DECLARE_EQUALITY_COMPARABLE(QWebEngineFrame);
