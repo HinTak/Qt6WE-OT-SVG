@@ -10,7 +10,7 @@ on:
 
 jobs:
   pre-fedora-job:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: fedora:40
     permissions: write-all
     steps:
@@ -48,7 +48,7 @@ jobs:
       - run: mv -f qtwebengine-everywhere-src-6.8.0-beta3-clean.tar.xz ~/rpmbuild/SOURCES/
 
   fedora-job:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: pre-fedora-job
     container: fedora:40
     permissions: write-all
