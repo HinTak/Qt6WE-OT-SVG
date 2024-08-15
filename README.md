@@ -1,5 +1,5 @@
 # Chromium/QT WebEngine SVG in OpenType support
-[![CI](https://github.com/HinTak/Qt6WE-OT-SVG/actions/workflows/ci.yml/badge.svg)](https://github.com/HinTak/HinTak/Qt6WE-OT-SVG/actions/workflows/ci.yml)
+[![CI](https://github.com/HinTak/Qt6WE-OT-SVG/actions/workflows/ci.yml/badge.svg)](https://github.com/HinTak/Qt6WE-OT-SVG/actions/workflows/ci.yml)
 
 
 This is a set of QT WebEngine patches to address
