@@ -22,6 +22,8 @@ jobs:
           key: Qt6WE-OT-SVG-${{ github.sha }}
       - run: cat /etc/os-release
       - run: df
+      - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
+      - run: df
       - run: dnf install -y dnf-utils rpm-build
       - run: curl -o a.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.7.2/1.fc40/src/qt6-qtwebengine-6.7.2-1.fc40.src.rpm
       - run: df
