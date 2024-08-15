@@ -75,6 +75,7 @@ jobs:
 #      - run: ./clean_qtwebengine.sh 6.8.0-beta3
       - run: cp *.patch ~/rpmbuild/SOURCES/
       - run: mv -f cached/qtwebengine-everywhere-src-6.8.0-beta3-clean.tar.xz ~/rpmbuild/SOURCES/
+      - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
       - run: df
       - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
 #      - run: find ~/rpmbuild/BUILD -type f -name "platform_jumbo_29.cc" -print -exec cp {} ~/rpmbuild/RPMS \;
