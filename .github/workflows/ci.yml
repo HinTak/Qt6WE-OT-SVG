@@ -95,7 +95,5 @@ jobs:
         with:
           files: |
             rpms.zip
-          tag_name: ${{ github.ref }}
-          name: Release ${{ github.ref }}
           draft: false
           prerelease: false
