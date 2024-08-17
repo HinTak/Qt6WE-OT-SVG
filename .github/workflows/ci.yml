@@ -95,6 +95,5 @@ jobs:
         with:
           files: |
             rpms.zip
-          name: Release ${{ env.TAG_NAME }}
           draft: false
           prerelease: false
