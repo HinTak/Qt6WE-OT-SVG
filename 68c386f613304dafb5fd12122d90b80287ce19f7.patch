@@ -32,7 +32,7 @@ index 2a06baec664..916c219d0a3 100644
 +    SBOM_INCOMPLETE_3RD_PARTY_DEPENDENCIES
  )
  
- set_target_properties(WebEngineCore PROPERTIES QTWEBENGINEPROCESS_NAME ${qtWebEngineProcessName})
+ if(MSVC)
 diff --git a/src/pdf/CMakeLists.txt b/src/pdf/CMakeLists.txt
 index 41018e7da3b..eeb84a8e1c7 100644
 --- a/src/pdf/CMakeLists.txt
