@@ -31,7 +31,7 @@ index 87cb93eda..f2ceb2dfd 100644
 +    NO_GENERATE_CPP_EXPORTS
  )
  
- set_target_properties(WebEngineCore PROPERTIES QTWEBENGINEPROCESS_NAME ${qtWebEngineProcessName})
+ if(MSVC)
 diff --git a/src/pdfquick/CMakeLists.txt b/src/pdfquick/CMakeLists.txt
 index 560817446..d57ce04aa 100644
 --- a/src/pdfquick/CMakeLists.txt
