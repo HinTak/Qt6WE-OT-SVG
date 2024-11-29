@@ -50,7 +50,7 @@ jobs:
   fedora-job:
     runs-on: ubuntu-24.04
     needs: pre-fedora-job
-    container: fedora:40
+    container: fedora:41
     permissions: write-all
     steps:
       - run: cat /etc/os-release
