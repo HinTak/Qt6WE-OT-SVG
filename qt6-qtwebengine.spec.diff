@@ -1,45 +1,28 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 25087e0..042a329 100644
+index 46873b3..f109ba9 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
-@@ -50,8 +50,8 @@
- 
+@@ -51,7 +51,7 @@
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
--Version: 6.7.2
+ Version: 6.8.0
 -Release: 1%{?dist}
-+Version: 6.8.0
-+Release: 1g%{?dist}
++Release: 1h%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
-@@ -61,7 +61,7 @@ URL:     http://www.qt.io
- # cleaned tarball with patent-encumbered codecs removed from the bundled FFmpeg
- # ./qtwebengine-release.sh
- # ./clean_qtwebengine.sh 6.4.1
--Source0: qtwebengine-everywhere-src-%{version}-clean.tar.xz
-+Source0: qtwebengine-everywhere-src-%{version}-clean.tar.xz
- 
- # cleanup scripts used above
- Source2: clean_qtwebengine.sh
-@@ -90,6 +90,16 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
+@@ -92,6 +92,10 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
  Patch111: qtwebengine-blink-system-openh264.patch
  Patch112: qtwebengine-media-system-openh264.patch
  
 +## OT-SVG
-+Patch1002: eae0536be815f732a1c11c892d5808ce4113f365.patch
-+Patch1003: 0001-Inlined-Q_DECLARE_EQUALITY_COMPARABLE.patch
-+Patch1004: 0001-browserwindow.cpp-and-downloadwidget.cpp-missing-QIc.patch
-+Patch1005: 34f93ea4294e2254c95478521fa9886dfed43910.patch
-+Patch1006: 0e2d491b388a0651c54d2505e57fd61e7d6454d0.patch
-+Patch1008: 68c386f613304dafb5fd12122d90b80287ce19f7.patch
 +Patch1000: 0001-m122a-OT-SVG-hook.patch
 +Patch1001: 0002-m122-use-FreeType-for-non-Linux-OT-SVG-support.patch
 +
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
  # 32-bit arches not supported (https://bugreports.qt.io/browse/QTBUG-102143)
-@@ -101,7 +110,7 @@ BuildRequires: qt6-srpm-macros
+@@ -103,7 +107,7 @@ BuildRequires: qt6-srpm-macros
  BuildRequires: qt6-qtbase-devel
  BuildRequires: qt6-qtbase-private-devel
  # TODO: check of = is really needed or if >= would be good enough -- rex
@@ -48,7 +31,7 @@ index 25087e0..042a329 100644
  BuildRequires: qt6-qtdeclarative-devel
  BuildRequires: qt6-qtlocation-devel
  BuildRequires: qt6-qtsensors-devel
-@@ -315,7 +324,7 @@ Provides: bundled(v8) = 11.8.172.18
+@@ -319,7 +323,7 @@ Provides: bundled(v8) = 11.8.172.18
  # http://www.netlib.org/fdlibm/readme
  Provides: bundled(fdlibm) = 5.3
  
@@ -57,45 +40,26 @@ index 25087e0..042a329 100644
  
  %description
  %{summary}.
-@@ -364,7 +373,8 @@ Summary: Example files for qt6-qtpdf
- %{summary}.
+@@ -369,6 +373,7 @@ Summary: Example files for qt6-qtpdf
  
  %prep
--%setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}} -a20
-+%setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}} -a20
+ %setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}} -a20
 +rm %{SOURCE0}
  
  mv pulse src/3rdparty/chromium/
  
-@@ -375,15 +384,25 @@ popd
- %patch -P2 -p1 -b .link-pipewire
- %patch -P3 -p1 -b .aarch64-new-stat
- 
--%patch -P50 -p1 -b .fix-build.patch
-+#%patch -P50 -p1 -b .fix-build.patch
- 
- ## upstream patches
- 
- ## upstreamable patches
- %patch -P110 -p1 -b .webrtc-system-openh264
--%patch -P111 -p1 -b .blink-system-openh264
-+#%patch -P111 -p1 -b .blink-system-openh264
+@@ -389,6 +394,10 @@ popd
+ %patch -P111 -p1 -b .blink-system-openh264
  %patch -P112 -p1 -b .media-system-openh264
  
 +## OT-SVG
-+%patch -P1008 -p1 -R -b .qt6.7compat.6
-+%patch -P1002 -p1 -R -b .qt6.7compat
-+%patch -P1003 -p1 -b .qt6.7compat.2
-+%patch -P1004 -p1 -b .qt6.7compat.3
-+%patch -P1005 -p1 -R -b .qt6.7compat.4
-+%patch -P1006 -p1 -R -b .qt6.7compat.5
 +%patch -P1000 -p1 -b .OT-SVG
 +%patch -P1001 -p1 -b .OT-SVG2
 +
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
  sed -i -e '/toolprefix = /d' -e 's/\${toolprefix}//g' \
-@@ -424,7 +442,7 @@ cp -p src/3rdparty/chromium/LICENSE LICENSE.Chromium
+@@ -429,7 +438,7 @@ cp -p src/3rdparty/chromium/LICENSE LICENSE.Chromium
  . /opt/rh/gcc-toolset-13/enable
  %endif
  export STRIP=strip
