@@ -76,7 +76,7 @@ jobs:
       - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
 #      - run: ./clean_qtwebengine.sh 6.8.0
       - run: cp *.patch ~/rpmbuild/SOURCES/
-#      - run: mv -f cached/qtwebengine-everywhere-src-6.8.0-clean.tar.xz ~/rpmbuild/SOURCES/
+      - run: mv -f cached/qtwebengine-everywhere-src-6.8.0-clean.tar.xz ~/rpmbuild/SOURCES/
       - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
       - run: df
       - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
