@@ -1,5 +1,5 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 46873b3..c97beb8 100644
+index 46873b3..f109ba9 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -51,7 +51,7 @@
@@ -59,7 +59,7 @@ index 46873b3..c97beb8 100644
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
  sed -i -e '/toolprefix = /d' -e 's/\${toolprefix}//g' \
-@@ -429,12 +438,13 @@ cp -p src/3rdparty/chromium/LICENSE LICENSE.Chromium
+@@ -429,7 +438,7 @@ cp -p src/3rdparty/chromium/LICENSE LICENSE.Chromium
  . /opt/rh/gcc-toolset-13/enable
  %endif
  export STRIP=strip
@@ -68,9 +68,3 @@ index 46873b3..c97beb8 100644
  export NINJA_PATH=%{__ninja}
  
  %cmake_qt6 \
-   -DCMAKE_TOOLCHAIN_FILE:STRING="%{_libdir}/cmake/Qt6/qt.toolchain.cmake" \
-   -DFEATURE_qtpdf_build:BOOL=ON \
-+  -DFEATURE_webengine_jumbo_build:BOOL=OFF \
-   -DFEATURE_webengine_developer_build:BOOL=OFF \
-   -DFEATURE_webengine_embedded_build:BOOL=OFF \
-   -DFEATURE_webengine_extensions:BOOL=ON \
