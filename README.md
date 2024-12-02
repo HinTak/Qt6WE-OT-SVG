@@ -37,6 +37,7 @@ qt6-qtwebengine-6.8.0-1d 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  
 qt6-qtwebengine-6.8.0-1e 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  127.0.6533.99  # beta 4
 qt6-qtwebengine-6.8.0-1f 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  129.0.6668.58  # rc
 qt6-qtwebengine-6.8.0-1g 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  129.0.6668.70  # release
+qt6-qtwebengine-6.8.0-1h 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  129.0.6668.70  # release, fc41 + 6.8.0 qtbase rebuild
 ```
 
 github container inherited environment:
