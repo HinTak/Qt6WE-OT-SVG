@@ -25,27 +25,27 @@ jobs:
       - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
       - run: df
       - run: dnf install -y dnf-utils rpm-build
-      - run: curl -o qt6-qtwebengine.src.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.8.0/1.fc41/src/qt6-qtwebengine-6.8.0-1.fc41.src.rpm
+      - run: curl -o qt6-qtwebengine.src.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.8.1/2.fc41/src/qt6-qtwebengine-6.8.1-2.fc41.src.rpm
       - run: df
       - run: rpm -ivh qt6-qtwebengine.src.rpm
       - run: rm -f qt6-qtwebengine.src.rpm
       - uses: actions/checkout@v4
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
       - run: dnf install -y wget
-      - run: wget https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.8/6.8.0/submodules/qtwebengine-everywhere-src-6.8.0.tar.xz
+      - run: wget https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.8/6.8.1/submodules/qtwebengine-everywhere-src-6.8.1.tar.xz
       - run: cp ~/rpmbuild/SOURCES/*.sh ~/rpmbuild/SOURCES/*.py .
       - run: dnf install -y perl
       - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
       - name: T1
         if: ${{ steps.cache-bin.outputs.cache-hit != 'true' }}
-        run: ./clean_qtwebengine.sh 6.8.0
-      - run: rm -f qtwebengine-everywhere-src-6.8.0.tar.xz
+        run: ./clean_qtwebengine.sh 6.8.1
+      - run: rm -f qtwebengine-everywhere-src-6.8.1.tar.xz
       - run: cp *.patch ~/rpmbuild/SOURCES/
       - run: mkdir -p cached
       - name: T2
         if: ${{ steps.cache-bin.outputs.cache-hit != 'true' }}
-        run: cp -p qtwebengine-everywhere-src-6.8.0-clean.tar.xz cached
-      - run: mv -f qtwebengine-everywhere-src-6.8.0-clean.tar.xz ~/rpmbuild/SOURCES/
+        run: cp -p qtwebengine-everywhere-src-6.8.1-clean.tar.xz cached
+      - run: mv -f qtwebengine-everywhere-src-6.8.1-clean.tar.xz ~/rpmbuild/SOURCES/
 
   fedora-job:
     runs-on: ubuntu-24.04
@@ -56,7 +56,7 @@ jobs:
       - run: cat /etc/os-release
       - run: df
       - run: dnf install -y dnf-utils rpm-build
-      - run: curl -o qt6-qtwebengine.src.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.8.0/1.fc41/src/qt6-qtwebengine-6.8.0-1.fc41.src.rpm
+      - run: curl -o qt6-qtwebengine.src.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.8.1/2.fc41/src/qt6-qtwebengine-6.8.1-2.fc41.src.rpm
       - run: dnf builddep -y qt6-qtwebengine.src.rpm
       - run: dnf clean all
       - run: df
@@ -71,12 +71,12 @@ jobs:
           key: Qt6WE-OT-SVG-${{ github.sha }}
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
 #      - run: dnf install -y wget
-#      - run: wget https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.8/6.8.0/submodules/qtwebengine-everywhere-src-6.8.0.tar.xz
+#      - run: wget https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.8/6.8.1/submodules/qtwebengine-everywhere-src-6.8.1.tar.xz
       - run: cp ~/rpmbuild/SOURCES/*.sh ~/rpmbuild/SOURCES/*.py .
       - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
-#      - run: ./clean_qtwebengine.sh 6.8.0
+#      - run: ./clean_qtwebengine.sh 6.8.1
       - run: cp *.patch ~/rpmbuild/SOURCES/
-      - run: mv -f cached/qtwebengine-everywhere-src-6.8.0-clean.tar.xz ~/rpmbuild/SOURCES/
+      - run: mv -f cached/qtwebengine-everywhere-src-6.8.1-clean.tar.xz ~/rpmbuild/SOURCES/
       - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
       - run: df
       - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
