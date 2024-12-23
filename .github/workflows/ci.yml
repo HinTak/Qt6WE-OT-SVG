@@ -25,7 +25,7 @@ jobs:
       - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
       - run: df
       - run: dnf install -y dnf-utils rpm-build
-      - run: curl -o qt6-qtwebengine.src.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.8.1/2.fc41/src/qt6-qtwebengine-6.8.1-2.fc41.src.rpm
+      - run: curl -o qt6-qtwebengine.src.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.8.1/3.fc41/src/qt6-qtwebengine-6.8.1-3.fc41.src.rpm
       - run: df
       - run: rpm -ivh qt6-qtwebengine.src.rpm
       - run: rm -f qt6-qtwebengine.src.rpm
@@ -56,7 +56,7 @@ jobs:
       - run: cat /etc/os-release
       - run: df
       - run: dnf install -y dnf-utils rpm-build
-      - run: curl -o qt6-qtwebengine.src.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.8.1/2.fc41/src/qt6-qtwebengine-6.8.1-2.fc41.src.rpm
+      - run: curl -o qt6-qtwebengine.src.rpm https://kojipkgs.fedoraproject.org//packages/qt6-qtwebengine/6.8.1/3.fc41/src/qt6-qtwebengine-6.8.1-3.fc41.src.rpm
       - run: dnf builddep -y qt6-qtwebengine.src.rpm
       - run: dnf clean all
       - run: df
