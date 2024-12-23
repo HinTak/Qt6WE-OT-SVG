@@ -13,10 +13,10 @@ Signed-off-by: Hin-Tak Leung <htl10@users.sourceforge.net>
  .../renderer/platform/fonts/web_font_typeface_factory.h     | 3 ++-
  4 files changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/third_party/blink/renderer/platform/fonts/opentype/font_format_check.cc b/third_party/blink/renderer/platform/fonts/opentype/font_format_check.cc
+diff --git a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/opentype/font_format_check.cc b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/opentype/font_format_check.cc
 index 0fb499e4..9706f850 100644
---- a/third_party/blink/renderer/platform/fonts/opentype/font_format_check.cc
-+++ b/third_party/blink/renderer/platform/fonts/opentype/font_format_check.cc
+--- a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/opentype/font_format_check.cc
++++ b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/opentype/font_format_check.cc
 @@ -100,12 +100,16 @@ bool FontFormatCheck::IsSbixColorFont() const {
    return table_tags_.size() && table_tags_.Contains(HB_TAG('s', 'b', 'i', 'x'));
  }
@@ -35,10 +35,10 @@ index 0fb499e4..9706f850 100644
  }
  
  FontFormatCheck::VariableFontSubType FontFormatCheck::ProbeVariableFont(
-diff --git a/third_party/blink/renderer/platform/fonts/opentype/font_format_check.h b/third_party/blink/renderer/platform/fonts/opentype/font_format_check.h
+diff --git a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/opentype/font_format_check.h b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/opentype/font_format_check.h
 index 824cf324..e1e7be2e 100644
---- a/third_party/blink/renderer/platform/fonts/opentype/font_format_check.h
-+++ b/third_party/blink/renderer/platform/fonts/opentype/font_format_check.h
+--- a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/opentype/font_format_check.h
++++ b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/opentype/font_format_check.h
 @@ -29,6 +29,7 @@ class PLATFORM_EXPORT FontFormatCheck {
    virtual bool IsColrCpalColorFontV1() const;
    bool IsVariableColrV0Font() const;
@@ -47,10 +47,10 @@ index 824cf324..e1e7be2e 100644
    virtual bool IsCff2OutlineFont() const;
    bool IsColorFont() const;
  
-diff --git a/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.cc b/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.cc
+diff --git a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.cc b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.cc
 index 5855b450..429d5ff9 100644
---- a/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.cc
-+++ b/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.cc
+--- a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.cc
++++ b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.cc
 @@ -174,6 +174,8 @@ bool WebFontTypefaceFactory::CreateTypeface(
         InstantiationResult::kSuccessColrV1Font, std::nullopt},
        {&FontFormatCheck::IsSbixColorFont, &MakeSbixTypeface,
@@ -60,10 +60,10 @@ index 5855b450..429d5ff9 100644
        {&FontFormatCheck::IsCff2OutlineFont, &MakeUseFallbackIfNeeded,
         InstantiationResult::kSuccessCff2Font, std::nullopt},
        // We need to special case variable COLRv0 for backend instantiation as
-diff --git a/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.h b/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.h
+diff --git a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.h b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.h
 index 6cb36ca5..f4beb929 100644
---- a/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.h
-+++ b/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.h
+--- a/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.h
++++ b/src/3rdparty/chromium/third_party/blink/renderer/platform/fonts/web_font_typeface_factory.h
 @@ -50,7 +50,8 @@ class PLATFORM_EXPORT WebFontTypefaceFactory {
      kSuccessSbixFont = 5,
      kSuccessColrCpalFont = 6,
