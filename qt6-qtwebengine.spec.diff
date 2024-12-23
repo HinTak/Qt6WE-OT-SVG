@@ -17,7 +17,7 @@ index 9fa700c..50ce713 100644
  
 +## OT-SVG
 +Patch1000: 0001-m122a-OT-SVG-hook.patch
-+Patch1001: 0002-m122-use-FreeType-for-non-Linux-OT-SVG-support.patch
++Patch1001: 0002-m127-use-FreeType-for-non-Linux-OT-SVG-support.patch
 +Patch1002: qtwebengine-6.5.2-filename-too-long.patch
 +
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
