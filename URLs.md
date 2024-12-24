@@ -4,3 +4,11 @@
 Issues:
 
 [6.9 beta1 submodules (source tar ball) download directory totally empty.](https://bugreports.qt.io/browse/QTBUG-132437)
+
+https://chromestatus.com/features
+
+https://chromestatus.com/feature/6236420349100032
+https://issues.chromium.org/issues/40037626
+
+https://chromestatus.com/feature/5638148514119680
+https://lists.webkit.org/pipermail/webkit-dev/2021-March/031765.html
