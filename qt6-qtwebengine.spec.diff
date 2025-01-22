@@ -22,7 +22,7 @@ index 956d20a..dadba64 100644
  
  # cleanup scripts used above
  Source2: clean_qtwebengine.sh
-@@ -92,6 +92,11 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
+@@ -92,6 +92,12 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
  Patch111: qtwebengine-blink-system-openh264.patch
  Patch112: qtwebengine-media-system-openh264.patch
  
@@ -30,6 +30,7 @@ index 956d20a..dadba64 100644
 +Patch1000: 0001-m122a-OT-SVG-hook.patch
 +Patch1001: 0002-m127-use-FreeType-for-non-Linux-OT-SVG-support.patch
 +Patch1002: qtwebengine-6.5.2-filename-too-long.patch
++Patch999: f19df5e7c81041a4f80e03c8e2310231a1b79d35.patch
 +
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
@@ -62,7 +63,7 @@ index 956d20a..dadba64 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -387,10 +393,15 @@ popd
+@@ -387,10 +393,16 @@ popd
  %patch -P80 -p1 -b .fix-arm-build
  
  ## upstreamable patches
@@ -75,6 +76,7 @@ index 956d20a..dadba64 100644
 +%patch -P1000 -F2 -p1 -b .OT-SVG
 +%patch -P1001 -p1 -b .OT-SVG2
 +%patch -P1002 -p1 -b .jumbo_build_long_path
++%patch -P999 -R -p1 -b .6.9.0-6.8.2.compat
 +
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
