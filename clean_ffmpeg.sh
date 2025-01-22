@@ -183,6 +183,7 @@ header_files="  libavcodec/x86/inline_asm.h \
                 libavutil/intreadwrite.h \
                 libavutil/libm.h \
                 libavutil/lls.h \
+                libavutil/log.h \
                 libavutil/macros.h \
                 libavutil/pixfmt.h \
                 libavutil/qsort.h \
