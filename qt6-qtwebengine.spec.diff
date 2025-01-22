@@ -1,5 +1,5 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 956d20a..d310c5e 100644
+index 956d20a..dadba64 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -50,8 +50,8 @@
@@ -13,6 +13,15 @@ index 956d20a..d310c5e 100644
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
+@@ -61,7 +61,7 @@ URL:     http://www.qt.io
+ # cleaned tarball with patent-encumbered codecs removed from the bundled FFmpeg
+ # ./qtwebengine-release.sh
+ # ./clean_qtwebengine.sh 6.4.1
+-Source0: qtwebengine-everywhere-src-%{version}-clean.tar.xz
++Source0: qtwebengine-everywhere-src-%{version}-beta2-clean.tar.xz
+ 
+ # cleanup scripts used above
+ Source2: clean_qtwebengine.sh
 @@ -92,6 +92,11 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
  Patch111: qtwebengine-blink-system-openh264.patch
  Patch112: qtwebengine-media-system-openh264.patch
@@ -43,10 +52,12 @@ index 956d20a..d310c5e 100644
  
  %description
  %{summary}.
-@@ -371,6 +376,7 @@ Summary: Example files for qt6-qtpdf
+@@ -370,7 +375,8 @@ Summary: Example files for qt6-qtpdf
+ %{summary}.
  
  %prep
- %setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}} -a20
+-%setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}} -a20
++%setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}}-beta2 -a20
 +rm %{SOURCE0}
  
  mv pulse src/3rdparty/chromium/
