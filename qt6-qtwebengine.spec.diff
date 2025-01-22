@@ -72,7 +72,7 @@ index 956d20a..dadba64 100644
  %patch -P112 -p1 -b .media-system-openh264
  
 +## OT-SVG
-+%patch -P1000 -p1 -b .OT-SVG
++%patch -P1000 -F2 -p1 -b .OT-SVG
 +%patch -P1001 -p1 -b .OT-SVG2
 +%patch -P1002 -p1 -b .jumbo_build_long_path
 +
