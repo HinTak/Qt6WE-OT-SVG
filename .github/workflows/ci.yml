@@ -33,7 +33,7 @@ jobs:
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
       - run: dnf install -y wget
       - run: wget https://mirrors.20i.com/pub/qt.io/development_releases/qt/6.9/6.9.0-beta2/submodules/qtwebengine-everywhere-src-6.9.0-beta2.tar.xz
-      - run: cp ~/rpmbuild/SOURCES/*.sh ~/rpmbuild/SOURCES/*.py .
+      - run: cp ~/rpmbuild/SOURCES/clean_qtwebengine.sh ~/rpmbuild/SOURCES/*.py .
       - run: dnf install -y perl
       - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
       - name: T1
