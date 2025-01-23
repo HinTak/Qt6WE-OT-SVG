@@ -185,8 +185,10 @@ header_files="  libavcodec/x86/inline_asm.h \
                 libavutil/lls.h \
                 libavutil/log.h \
                 libavutil/macros.h \
+                libavutil/mathematics.h \
                 libavutil/pixfmt.h \
                 libavutil/qsort.h \
+                libavutil/rational.h \
                 libavutil/replaygain.h \
                 libavutil/softfloat.h \
                 libavutil/softfloat_tables.h \
