@@ -186,6 +186,7 @@ header_files="  libavcodec/x86/inline_asm.h \
                 libavutil/log.h \
                 libavutil/macros.h \
                 libavutil/mathematics.h \
+                libavutil/opt.h \
                 libavutil/pixfmt.h \
                 libavutil/qsort.h \
                 libavutil/rational.h \
