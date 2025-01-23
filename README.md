@@ -39,7 +39,8 @@ qt6-qtwebengine-6.8.0-1f 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  
 qt6-qtwebengine-6.8.0-1g 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  129.0.6668.70  # release
 qt6-qtwebengine-6.8.0-1h 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  129.0.6668.70  # release, fc41 + 6.8.0 qtbase rebuild
 qt6-qtwebengine-6.8.1-2a 6.8.1 	Chrome based:  122.0.6261.171 	Chrome patched:  131.0.6778.70  # 6.8.1
-qt6-qtwebengine-6.8.1-3b 6.8.1 	Chrome based:  122.0.6261.171 	Chrome patched:  131.0.6778.70
+qt6-qtwebengine-6.8.1-3b 6.8.1 	Chrome based:  122.0.6261.171 	Chrome patched:  131.0.6778.70  # fedora 2->3 - Add optional deps/libva for VA-API support/qtwebsockets for websockets
+qt6-qtwebengine-6.9.0-1a 6.9.0 	Chrome based:  126.0.6478.165 	Chrome patched:  129.0.6668.58  # 6.9.0 beta 2
 ```
 
 github container inherited environment:
