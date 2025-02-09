@@ -88,3 +88,11 @@ index 956d20a..dadba64 100644
  export NINJA_PATH=%{__ninja}
  
  %cmake_qt6 \
+@@ -509,6 +509,7 @@ done
+ %files
+ %license LICENSE.*
+ %{_qt6_archdatadir}/sbom/%{qt_module}-%{version}.spdx
++%{_qt6_archdatadir}/sbom/qtpdf-%{version}.spdx
+ %{_qt6_libdir}/libQt6WebEngineCore.so.*
+ %{_qt6_libdir}/libQt6WebEngineQuick.so.*
+ %{_qt6_libdir}/libQt6WebEngineQuickDelegatesQml.so.*
