@@ -31,6 +31,10 @@ qt6-qtwebengine-6.7.0-3d 6.7.0 	Chrome based:  118.0.5993.220 	Chrome patched:  
 qt6-qtwebengine-6.7.0-3e 6.7.0 	Chrome based:  118.0.5993.220 	Chrome patched:  122.0.6261.128 # rc2
 qt6-qtwebengine-6.7.0-3f 6.7.0 	Chrome based:  118.0.5993.220 	Chrome patched:  122.0.6261.128 # release
 
+                         6.7.1 	               118.0.5993.220 	                 124.0.6367.202
+                         6.7.2 	               118.0.5993.220 	                 125.0.6422.142
+                         6.7.3 	               118.0.5993.220 	                 129.0.6668.58
+
 qt6-qtwebengine-6.8.0-1a 6.8.0 	Chrome based:  118.0.5993.220 	Chrome patched:  122.0.6261.128 # beta 1
 qt6-qtwebengine-6.8.0-1c 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  124.0.6367.202 # beta 2
 qt6-qtwebengine-6.8.0-1d 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  124.0.6367.202 # beta 3
@@ -40,6 +44,9 @@ qt6-qtwebengine-6.8.0-1g 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  
 qt6-qtwebengine-6.8.0-1h 6.8.0 	Chrome based:  122.0.6261.171 	Chrome patched:  129.0.6668.70  # release, fc41 + 6.8.0 qtbase rebuild
 qt6-qtwebengine-6.8.1-2a 6.8.1 	Chrome based:  122.0.6261.171 	Chrome patched:  131.0.6778.70  # 6.8.1
 qt6-qtwebengine-6.8.1-3b 6.8.1 	Chrome based:  122.0.6261.171 	Chrome patched:  131.0.6778.70  # fedora 2->3 - Add optional deps/libva for VA-API support/qtwebsockets for websockets
+
+                         6.8.2 	               122.0.6261.171 	                 132.0.6834.111 # from qtwebengine/CHROMIUM_VERSION
+
 qt6-qtwebengine-6.9.0-1a 6.9.0 	Chrome based:  126.0.6478.165 	Chrome patched:  129.0.6668.58  # 6.9.0 beta 2
 qt6-qtwebengine-6.9.0-1b 6.9.0 	Chrome based:  126.0.6478.165 	Chrome patched:  129.0.6668.58  # 6.9.0 beta 2 qt 6.8.2
 ```
