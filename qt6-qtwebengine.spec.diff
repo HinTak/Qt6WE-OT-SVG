@@ -62,14 +62,14 @@ index 956d20a..dadba64 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -381,16 +387,20 @@ popd
+@@ -381,16 +387,19 @@ popd
  %patch -P2 -p1 -b .link-pipewire
  %patch -P3 -p1 -b .aarch64-new-stat
  
 -%patch -P50 -p1 -b .fix-build.patch
  
  ## upstream patches
- %patch -P80 -p1 -b .fix-arm-build
+-%patch -P80 -p1 -b .fix-arm-build
  
  ## upstreamable patches
 -%patch -P110 -p1 -b .webrtc-system-openh264
