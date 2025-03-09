@@ -27,7 +27,7 @@ jobs:
       - run: dnf install -y dnf-utils rpm-build
       - uses: actions/checkout@v4
       - run: tar -xpvf 99ee61922b26e3af3521718666f18e55b70767f3.tar
-      - run: mkdir ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
+      - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
       - run: mv 6.8.1-3/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
       - run: mv 6.8.1-3/* ~/rpmbuild/SOURCES/
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
@@ -58,7 +58,7 @@ jobs:
       - run: dnf install --refresh -y dnf-utils rpm-build nodejs
       - uses: actions/checkout@v4
       - run: tar -xpvf 99ee61922b26e3af3521718666f18e55b70767f3.tar
-      - run: mkdir ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
+      - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
       - run: dnf builddep -y 6.8.1-3/qt6-qtwebengine.spec
       - run: mv 6.8.1-3/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
       - run: mv 6.8.1-3/* ~/rpmbuild/SOURCES/
