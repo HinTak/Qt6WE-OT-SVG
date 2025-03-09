@@ -60,6 +60,7 @@ jobs:
       - run: tar -xpvf 99ee61922b26e3af3521718666f18e55b70767f3.tar
       - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
       - run: dnf builddep -y 6.8.1-3/qt6-qtwebengine.spec
+      - run: dnf update -y
       - run: mv 6.8.1-3/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
       - run: mv 6.8.1-3/* ~/rpmbuild/SOURCES/
       - run: mv pulseaudio-12.2-headers.tar.gz ~/rpmbuild/SOURCES/
@@ -69,17 +70,13 @@ jobs:
             cached
           key: Qt6WE-OT-SVG-${{ github.sha }}
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
-#      - run: dnf install -y wget
-#      - run: wget https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.8/6.8.1/submodules/qtwebengine-everywhere-src-6.8.1.tar.xz
       - run: cp ~/rpmbuild/SOURCES/*.sh ~/rpmbuild/SOURCES/*.py .
       - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
-#      - run: ./clean_qtwebengine.sh 6.9.0-beta3
       - run: cp *.patch ~/rpmbuild/SOURCES/
       - run: mv -f cached/qtwebengine-everywhere-src-6.9.0-beta3-clean.tar.xz ~/rpmbuild/SOURCES/
       - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
       - run: df
       - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
-#      - run: find ~/rpmbuild/BUILD -type f -name "platform_jumbo_29.cc" -print -exec cp {} ~/rpmbuild/RPMS \;
       - run: df
       - run: rm -f ~/rpmbuild/RPMS/x86_64/*debug*
       - run: cp -r ~/rpmbuild/RPMS .
