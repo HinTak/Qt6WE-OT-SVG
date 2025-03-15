@@ -9,7 +9,7 @@ index 956d20a..dadba64 100644
 -Version: 6.8.1
 -Release: 3%{?dist}
 +Version: 6.9.0
-+Release: 1c%{?dist}
++Release: 1d%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
