@@ -50,6 +50,7 @@ qt6-qtwebengine-6.8.1-3b 6.8.1 	Chrome based:  122.0.6261.171 	Chrome patched:  
 qt6-qtwebengine-6.9.0-1a 6.9.0 	Chrome based:  126.0.6478.165 	Chrome patched:  129.0.6668.58  # 6.9.0 beta 2
 qt6-qtwebengine-6.9.0-1b 6.9.0 	Chrome based:  126.0.6478.165 	Chrome patched:  129.0.6668.58  # 6.9.0 beta 2 qt 6.8.2
 qt6-qtwebengine-6.9.0-1c 6.9.0 	Chrome based:  130.0.6723.192 	Chrome patched:  132.0.6834.159 # 6.9.0 beta 3 Qt: 6.8.2 (also qtwebengine/CHROMIUM_VERSION)
+qt6-qtwebengine-6.9.0-1d 6.9.0 	Chrome based:  130.0.6723.192 	Chrome patched:  133.0.6943.141 # rc
 ```
 
 github container inherited environment:
