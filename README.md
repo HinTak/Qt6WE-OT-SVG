@@ -4,6 +4,9 @@
 
 This is a set of QT WebEngine patches to address
 Chromium [Issue 306078: SVG in OpenType support](https://bugs.chromium.org/p/chromium/issues/detail?id=306078).
+See the latest release on what QT release it supports. I try to patch QT6 beta's and release candidates
+before they come out.
+
 It was first done for QT 6.6/m112, then moved to QT 6.7 Beta 1/m118.
 See also [QT Webengine tracker issue](https://bugreports.qt.io/browse/QTBUG-120543).
 After that, work commences instead with Chromium Stable
