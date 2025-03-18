@@ -7,6 +7,8 @@ Chromium [Issue 306078: SVG in OpenType support](https://bugs.chromium.org/p/chr
 See the latest release on what QT release it supports. I try to patch QT6 beta's and release candidates
 before they come out.
 
+Here is the table of the latest patched builds, and their reported chrome versions:
+
 ```
 qt6-qtwebengine-6.9.0-1d 6.9.0 	Chrome based:  130.0.6723.192 	Chrome patched:  133.0.6943.141 # rc
 qt6-qtwebengine-6.9.0-1c 6.9.0 	Chrome based:  130.0.6723.192 	Chrome patched:  132.0.6834.159 # 6.9.0 beta 3 Qt: 6.8.2 (also qtwebengine/CHROMIUM_VERSION)
