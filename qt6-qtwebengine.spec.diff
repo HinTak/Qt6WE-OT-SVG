@@ -1,30 +1,19 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 956d20a..dadba64 100644
+index d251557..4c7e3ab 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
-@@ -50,8 +50,8 @@
- 
+@@ -56,7 +56,7 @@
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
--Version: 6.8.1
--Release: 3%{?dist}
-+Version: 6.9.0
-+Release: 1e%{?dist}
+ Version: 6.9.0
+-Release: 1%{?dist}
++Release: 1f%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
-@@ -61,7 +61,7 @@ URL:     http://www.qt.io
- # cleaned tarball with patent-encumbered codecs removed from the bundled FFmpeg
- # ./qtwebengine-release.sh
- # ./clean_qtwebengine.sh 6.4.1
--Source0: qtwebengine-everywhere-src-%{version}-clean.tar.xz
-+Source0: qtwebengine-everywhere-src-%{version}-clean.tar.xz
- 
- # cleanup scripts used above
- Source2: clean_qtwebengine.sh
-@@ -92,6 +92,11 @@ Patch110: qtwebengine-webrtc-system-openh264.patch
- Patch111: qtwebengine-blink-system-openh264.patch
- Patch112: qtwebengine-media-system-openh264.patch
+@@ -111,6 +111,11 @@ Patch201: qtwebengine-chromium-ppc64.patch
+ # https://src.fedoraproject.org/rpms/chromium/c/c675db4ac0623d2d97344be0b3b2d9f1ac931446?branch=rawhide
+ Patch202: chromium-130-size-assertions.patch
  
 +## OT-SVG
 +Patch1000: 0001-m122a-OT-SVG-hook.patch
@@ -34,7 +23,7 @@ index 956d20a..dadba64 100644
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
  # 32-bit arches not supported (https://bugreports.qt.io/browse/QTBUG-102143)
-@@ -103,7 +108,7 @@ BuildRequires: qt6-srpm-macros
+@@ -122,7 +127,7 @@ BuildRequires: qt6-srpm-macros
  BuildRequires: qt6-qtbase-devel
  BuildRequires: qt6-qtbase-private-devel
  # TODO: check of = is really needed or if >= would be good enough -- rex
@@ -43,7 +32,7 @@ index 956d20a..dadba64 100644
  BuildRequires: qt6-qtdeclarative-devel
  BuildRequires: qt6-qtlocation-devel
  BuildRequires: qt6-qtsensors-devel
-@@ -321,7 +326,7 @@ Provides: bundled(v8) = 11.8.172.18
+@@ -347,7 +352,7 @@ Provides: bundled(v8) = 11.8.172.18
  # http://www.netlib.org/fdlibm/readme
  Provides: bundled(fdlibm) = 5.3
  
@@ -52,39 +41,26 @@ index 956d20a..dadba64 100644
  
  %description
  %{summary}.
-@@ -370,7 +375,8 @@ Summary: Example files for qt6-qtpdf
- %{summary}.
+@@ -397,6 +402,7 @@ Summary: Example files for qt6-qtpdf
  
  %prep
--%setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}} -a20
-+%setup -q -n %{qt_module}-everywhere-src-%{version}%{?prerelease:-%{prerelease}} -a20
+ %setup -q -n %{qt_module}-everywhere-src-%{qt_version}%{?prerelease:-%{prerelease}} -a20
 +rm %{SOURCE0}
  
  mv pulse src/3rdparty/chromium/
  
-@@ -381,16 +387,16 @@ popd
- %patch -P2 -p1 -b .link-pipewire
- %patch -P3 -p1 -b .aarch64-new-stat
- 
--%patch -P50 -p1 -b .fix-build.patch
- 
- ## upstream patches
--%patch -P80 -p1 -b .fix-arm-build
- 
- ## upstreamable patches
--%patch -P110 -p1 -b .webrtc-system-openh264
--%patch -P111 -p1 -b .blink-system-openh264
--%patch -P112 -p1 -b .media-system-openh264
+@@ -423,6 +429,10 @@ pushd src/3rdparty/chromium
+ %patch -P202 -p1
+ popd
  
 +## OT-SVG
 +%patch -P1000 -F2 -p1 -b .OT-SVG
 +%patch -P1001 -p1 -b .OT-SVG2
 +%patch -P1002 -p1 -b .jumbo_build_long_path
-+
+ 
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
- sed -i -e '/toolprefix = /d' -e 's/\${toolprefix}//g' \
-@@ -431,7 +442,7 @@ cp -p src/3rdparty/chromium/LICENSE LICENSE.Chromium
+@@ -479,7 +489,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
  . /opt/rh/gcc-toolset-13/enable
  %endif
  export STRIP=strip
@@ -93,11 +69,3 @@ index 956d20a..dadba64 100644
  export NINJA_PATH=%{__ninja}
  
  %cmake_qt6 \
-@@ -509,6 +509,7 @@ done
- %files
- %license LICENSE.*
- %{_qt6_archdatadir}/sbom/%{qt_module}-%{version}.spdx
-+%{_qt6_archdatadir}/sbom/qtpdf-%{version}.spdx
- %{_qt6_libdir}/libQt6WebEngineCore.so.*
- %{_qt6_libdir}/libQt6WebEngineQuick.so.*
- %{_qt6_libdir}/libQt6WebEngineQuickDelegatesQml.so.*
