@@ -1,3 +1,7 @@
+This repository focuses on supporting SVG in OpenType fonts within the Chromium/Qt WebEngine environment.
+
+- Topics of Interest: Focused on enhancing font rendering and web technologies using OpenType-SVG within the Qt6 framework.
+
 # Chromium/QT WebEngine SVG in OpenType support
 [![CI](https://github.com/HinTak/Qt6WE-OT-SVG/actions/workflows/ci.yml/badge.svg)](https://github.com/HinTak/Qt6WE-OT-SVG/actions/workflows/ci.yml)
 
