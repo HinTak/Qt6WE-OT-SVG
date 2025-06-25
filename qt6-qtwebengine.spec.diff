@@ -1,17 +1,17 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index d251557..4c7e3ab 100644
+index 00ca0e3..edd39f2 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
-@@ -56,7 +56,7 @@
+@@ -82,7 +82,7 @@
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
- Version: 6.9.0
+ Version: 6.9.1
 -Release: 1%{?dist}
-+Release: 1f%{?dist}
++Release: 1g%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
-@@ -111,6 +111,11 @@ Patch201: qtwebengine-chromium-ppc64.patch
+@@ -136,6 +136,11 @@ Patch201: qtwebengine-chromium-ppc64.patch
  # https://src.fedoraproject.org/rpms/chromium/c/c675db4ac0623d2d97344be0b3b2d9f1ac931446?branch=rawhide
  Patch202: chromium-130-size-assertions.patch
  
@@ -23,25 +23,20 @@ index d251557..4c7e3ab 100644
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
  # 32-bit arches not supported (https://bugreports.qt.io/browse/QTBUG-102143)
-@@ -122,7 +127,7 @@ BuildRequires: qt6-srpm-macros
+@@ -169,10 +174,10 @@ BuildRequires: git-core
+ BuildRequires: qt6-srpm-macros
  BuildRequires: qt6-qtbase-devel
  BuildRequires: qt6-qtbase-private-devel
+-%{?_qt6_version:Requires: qt6-qtbase%{?_isa} = %{_qt6_version}}
++%{?_qt6_version:Requires: qt6-qtbase%{?_isa} >= %{_qt6_version}}
+ 
  # TODO: check of = is really needed or if >= would be good enough -- rex
 -%{?_qt6:Requires: %{_qt6}%{?_isa} = %{_qt6_version}}
 +%{?_qt6:Requires: %{_qt6}%{?_isa} >= %{_qt6_version}}
  BuildRequires: qt6-qtdeclarative-devel
  BuildRequires: qt6-qtlocation-devel
  BuildRequires: qt6-qtsensors-devel
-@@ -347,7 +352,7 @@ Provides: bundled(v8) = 11.8.172.18
- # http://www.netlib.org/fdlibm/readme
- Provides: bundled(fdlibm) = 5.3
- 
--%{?_qt6_version:Requires: qt6-qtbase%{?_isa} = %{_qt6_version}}
-+%{?_qt6_version:Requires: qt6-qtbase%{?_isa} >= %{_qt6_version}}
- 
- %description
- %{summary}.
-@@ -397,6 +402,7 @@ Summary: Example files for qt6-qtpdf
+@@ -464,6 +469,7 @@ Requires: qt6-qtsvg%{?_isa}
  
  %prep
  %setup -q -n %{qt_module}-everywhere-src-%{qt_version}%{?prerelease:-%{prerelease}} -a20
@@ -49,7 +44,7 @@ index d251557..4c7e3ab 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -423,6 +429,10 @@ pushd src/3rdparty/chromium
+@@ -489,6 +495,10 @@ pushd src/3rdparty/chromium
  %patch -P202 -p1
  popd
  
@@ -60,7 +55,7 @@ index d251557..4c7e3ab 100644
  
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
-@@ -479,7 +489,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
+@@ -540,7 +550,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
  . /opt/rh/gcc-toolset-13/enable
  %endif
  export STRIP=strip
@@ -68,4 +63,4 @@ index d251557..4c7e3ab 100644
 +export NINJAFLAGS="%{?_smp_mflags}"
  export NINJA_PATH=%{__ninja}
  
- %cmake_qt6 \
+ # this follows the logic of the Configure summary to turn on and off
