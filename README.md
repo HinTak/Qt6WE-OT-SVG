@@ -14,6 +14,7 @@ before they come out.
 Here is the table of the latest patched builds, and their reported chrome versions:
 
 ```
+qt6-qtwebengine-6.9.1-1g 6.9.1 	Chrome based:  130.0.6723.192 	Chrome patched:  136.0.7103.114 # Qt:  6.9.1      PyQt:  6.9.0
 qt6-qtwebengine-6.9.0-1f 6.9.0 	Chrome based:  130.0.6723.192 	Chrome patched:  133.0.6943.141 # Qt:  6.9.0      PyQt:  6.9.0
 qt6-qtwebengine-6.9.0-1e 6.9.0 	Chrome based:  130.0.6723.192 	Chrome patched:  133.0.6943.141 # 6.9.0 Qt:  6.8.2      PyQt:  6.8.1.dev2502011625
 qt6-qtwebengine-6.9.0-1d 6.9.0 	Chrome based:  130.0.6723.192 	Chrome patched:  133.0.6943.141 # rc
