@@ -1,17 +1,17 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 00ca0e3..edd39f2 100644
+index 342f0cd..233620f 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
-@@ -82,7 +82,7 @@
+@@ -86,7 +86,7 @@
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
- Version: 6.9.1
--Release: 1%{?dist}
-+Release: 1g%{?dist}
+ Version: 6.9.2
+-Release: 2%{?dist}
++Release: 2h%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
-@@ -136,6 +136,11 @@ Patch201: qtwebengine-chromium-ppc64.patch
+@@ -144,6 +144,11 @@ Patch201: qtwebengine-chromium-ppc64.patch
  # https://src.fedoraproject.org/rpms/chromium/c/c675db4ac0623d2d97344be0b3b2d9f1ac931446?branch=rawhide
  Patch202: chromium-130-size-assertions.patch
  
@@ -23,7 +23,7 @@ index 00ca0e3..edd39f2 100644
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  # FIXME use/update qt6_qtwebengine_arches
  # 32-bit arches not supported (https://bugreports.qt.io/browse/QTBUG-102143)
-@@ -169,10 +174,10 @@ BuildRequires: git-core
+@@ -177,10 +182,10 @@ BuildRequires: git-core
  BuildRequires: qt6-srpm-macros
  BuildRequires: qt6-qtbase-devel
  BuildRequires: qt6-qtbase-private-devel
@@ -36,7 +36,7 @@ index 00ca0e3..edd39f2 100644
  BuildRequires: qt6-qtdeclarative-devel
  BuildRequires: qt6-qtlocation-devel
  BuildRequires: qt6-qtsensors-devel
-@@ -464,6 +469,7 @@ Requires: qt6-qtsvg%{?_isa}
+@@ -472,6 +477,7 @@ Requires: qt6-qtsvg%{?_isa}
  
  %prep
  %setup -q -n %{qt_module}-everywhere-src-%{qt_version}%{?prerelease:-%{prerelease}} -a20
@@ -44,7 +44,7 @@ index 00ca0e3..edd39f2 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -489,6 +495,10 @@ pushd src/3rdparty/chromium
+@@ -498,6 +504,10 @@ pushd src/3rdparty/chromium
  %patch -P202 -p1
  popd
  
@@ -55,7 +55,7 @@ index 00ca0e3..edd39f2 100644
  
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
-@@ -540,7 +550,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
+@@ -549,7 +559,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
  . /opt/rh/gcc-toolset-13/enable
  %endif
  export STRIP=strip
