@@ -26,7 +26,7 @@ jobs:
       - run: df
       - run: dnf install -y dnf-utils rpm-build
       - uses: actions/checkout@v4
-      - run: tar -xpvf 4d8326672ecf0d6ccd53fcb9b97f938af650a853.tar
+      - run: tar -xpvf 46ec64d60cfa0269c50c205b30e2a134d0dd7795.tar
       - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
       - run: mv 6.9.2-2/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
       - run: mv 6.9.2-2/* ~/rpmbuild/SOURCES/
@@ -57,7 +57,7 @@ jobs:
       - run: df
       - run: dnf install --refresh -y dnf-utils rpm-build nodejs
       - uses: actions/checkout@v4
-      - run: tar -xpvf 4d8326672ecf0d6ccd53fcb9b97f938af650a853.tar
+      - run: tar -xpvf 46ec64d60cfa0269c50c205b30e2a134d0dd7795.tar
       - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
       - run: dnf builddep -y 6.9.2-2/qt6-qtwebengine.spec
       - run: dnf update -y
