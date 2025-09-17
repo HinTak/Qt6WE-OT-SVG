@@ -16,7 +16,7 @@ index 342f0cd..233620f 100644
  Patch202: chromium-130-size-assertions.patch
  
 +## OT-SVG
-+Patch1000: 0001-m122a-OT-SVG-hook.patch
++Patch1000: 0001-m122b-OT-SVG-hook.patch
 +Patch1001: 0002-m130-use-FreeType-for-non-Linux-OT-SVG-support.patch
 +Patch1002: qtwebengine-6.5.2-filename-too-long.patch
 +
