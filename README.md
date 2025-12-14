@@ -14,6 +14,8 @@ before they come out.
 Here is the table of the latest patched builds, and their reported chrome versions:
 
 ```
+                               	               134.0.6998.208 	                 142.0.7444.162 # v6.10.1
+                               	               134.0.6998.208 	                 140.0.7339.207 # v6.10.0
                                	               130.0.6723.192 	                 137.0.7151.68  # v6.10.0-beta2
                                	               130.0.6723.192 	                 136.0.7103.114 # v6.10.0-beta1
 
