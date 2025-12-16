@@ -26,10 +26,10 @@ jobs:
       - run: df
       - run: dnf install -y dnf-utils rpm-build
       - uses: actions/checkout@v4
-      - run: tar -xpvf 46ec64d60cfa0269c50c205b30e2a134d0dd7795.tar
+      - run: tar -xpvf 6439083dfcdd0fefd2a3bb0cfa78ba864761f771.tar
       - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
-      - run: mv 6.9.2-2/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
-      - run: mv 6.9.2-2/* ~/rpmbuild/SOURCES/
+      - run: mv 6.9.3-1/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
+      - run: mv 6.9.3-1/* ~/rpmbuild/SOURCES/
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
       - run: dnf install -y wget
       - run: wget https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.9/6.9.2/submodules/qtwebengine-everywhere-src-6.9.2.tar.xz
@@ -57,12 +57,12 @@ jobs:
       - run: df
       - run: dnf install --refresh -y dnf-utils rpm-build nodejs
       - uses: actions/checkout@v4
-      - run: tar -xpvf 46ec64d60cfa0269c50c205b30e2a134d0dd7795.tar
+      - run: tar -xpvf 6439083dfcdd0fefd2a3bb0cfa78ba864761f771.tar
       - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
-      - run: dnf builddep -y 6.9.2-2/qt6-qtwebengine.spec
+      - run: dnf builddep -y 6.9.3-1/qt6-qtwebengine.spec
       - run: dnf update -y
-      - run: mv 6.9.2-2/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
-      - run: mv 6.9.2-2/* ~/rpmbuild/SOURCES/
+      - run: mv 6.9.3-1/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
+      - run: mv 6.9.3-1/* ~/rpmbuild/SOURCES/
       - run: mv pulseaudio-12.2-headers.tar.gz ~/rpmbuild/SOURCES/
       - uses: actions/cache/restore@v4
         with:
