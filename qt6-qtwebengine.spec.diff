@@ -1,13 +1,13 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 342f0cd..233620f 100644
+index 6bb2607..77d4ad9 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -86,7 +86,7 @@
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
- Version: 6.9.2
--Release: 2%{?dist}
-+Release: 2h%{?dist}
+ Version: 6.9.3
+-Release: 1%{?dist}
++Release: 1i%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
