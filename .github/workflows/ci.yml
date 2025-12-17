@@ -76,10 +76,13 @@ jobs:
       - run: mv -f cached/qtwebengine-everywhere-src-6.9.3-clean.tar.xz ~/rpmbuild/SOURCES/
       - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
       - run: df
+      - run: rm -rf /var/cache/PackageKit/*
+      - run: dnf clean all
+      - run: df
       - run: pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
       - run: df
       - run: rm -f ~/rpmbuild/RPMS/x86_64/*debug*
-      - run: cp -r ~/rpmbuild/RPMS .
+      - run: mv -f ~/rpmbuild/RPMS .
       - uses: actions/upload-artifact@v4
         with:
           name: rpms
