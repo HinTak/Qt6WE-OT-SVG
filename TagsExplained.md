@@ -22,4 +22,10 @@ and not usable.
 2026-07-18T08:38:02.3431994Z [1307/2695] /usr/sbin/g++ ...
 2026-07-18T08:38:04.4031626Z context canceled
 2026-07-18T08:38:04.4180818Z ##[error]The operation was canceled.
+
+2026-07-18T15:12:48.1414966Z pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
+...
+2026-07-18T21:11:03.5094297Z [1412/2695] /usr/sbin/g++ ...
+2026-07-18T21:11:17.0855334Z context canceled
+2026-07-18T21:11:17.1022295Z ##[error]The operation was canceled.
 ```
