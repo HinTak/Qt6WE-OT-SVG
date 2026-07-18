@@ -1,19 +1,19 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 6bb2607..77d4ad9 100644
+index 96cc186..abd318c 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
-@@ -86,7 +86,7 @@
+@@ -88,7 +88,7 @@
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
- Version: 6.9.3
+ Version: 6.10.2
 -Release: 1%{?dist}
-+Release: 1i%{?dist}
++Release: 1j%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
 @@ -144,6 +144,11 @@ Patch201: qtwebengine-chromium-ppc64.patch
- # https://src.fedoraproject.org/rpms/chromium/c/c675db4ac0623d2d97344be0b3b2d9f1ac931446?branch=rawhide
- Patch202: chromium-130-size-assertions.patch
+ # https://github.com/google/highway/commit/dcc0ca1cd4245ecff9e5ba50818e47d5e2ccf699
+ Patch202: qtwebengine-chromium-ppc64-highway.patch
  
 +## OT-SVG
 +Patch1000: 0001-m122b-OT-SVG-hook.patch
@@ -44,8 +44,8 @@ index 6bb2607..77d4ad9 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -498,6 +504,10 @@ pushd src/3rdparty/chromium
- %patch -P202 -p1
+@@ -502,6 +508,10 @@ pushd third_party/highway/src
+ popd
  popd
  
 +## OT-SVG
@@ -55,7 +55,7 @@ index 6bb2607..77d4ad9 100644
  
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
-@@ -549,7 +559,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
+@@ -553,7 +563,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
  . /opt/rh/gcc-toolset-13/enable
  %endif
  export STRIP=strip
