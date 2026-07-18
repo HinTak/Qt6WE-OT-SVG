@@ -16,7 +16,7 @@ index 96cc186..abd318c 100644
  Patch202: qtwebengine-chromium-ppc64-highway.patch
  
 +## OT-SVG
-+Patch1000: 0001-m122b-OT-SVG-hook.patch
++Patch1000: 0001-m122c-OT-SVG-hook.patch
 +Patch1001: 0002-m130-use-FreeType-for-non-Linux-OT-SVG-support.patch
 +Patch1002: qtwebengine-6.5.2-filename-too-long.patch
 +
