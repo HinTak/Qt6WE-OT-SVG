@@ -14,3 +14,12 @@ Annotation tag: `Qt6WE-OT-SVG-0.26-6.9.0-b3-13`
 
 Tags `Qt6WE-OT-SVG-*-6.9.3-*` after `0.31` removed as "Ubuntu 24.04" getting filled with not enough disk space
 and not usable.
+
+`Qt6WE-OT-SVG-0.32-6.10.2-0` timed out:
+```
+2026-07-18T02:41:50.3744789Z pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
+...
+2026-07-18T08:38:02.3431994Z [1307/2695] /usr/sbin/g++ ...
+2026-07-18T08:38:04.4031626Z context canceled
+2026-07-18T08:38:04.4180818Z ##[error]The operation was canceled.
+```
