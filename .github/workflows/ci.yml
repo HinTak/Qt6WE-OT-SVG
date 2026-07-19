@@ -12,7 +12,7 @@ on:
 jobs:
   pre-fedora-job:
     runs-on: ubuntu-latest
-    container: fedora:42
+    container: fedora:43
     permissions: write-all
     steps:
       - uses: actions/cache@v4
