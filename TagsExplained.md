@@ -45,3 +45,12 @@ and not usable.
 2026-07-19T22:18:43.4736318Z Wrote: /github/home/rpmbuild/RPMS/x86_64/qt6-qtwebengine-debugsource-6.10.3-1i.fc42.x86_64.rpm
 2026-07-19T22:20:29.1485777Z context canceled
 ```
+
+`Qt6WE-OT-SVG-0.33-6.10.3-1` first run was unsuccessful (2nd run okay):
+
+```
+2026-07-20T04:38:21.2962831Z ##[group]Run pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
+...
+2026-07-20T10:37:02.2607459Z [1424/2695] /usr/sbin/g++
+2026-07-20T10:37:06.9675443Z context canceled
+```
