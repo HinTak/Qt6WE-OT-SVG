@@ -12,7 +12,7 @@ on:
 jobs:
   pre-fedora-job:
     runs-on: ubuntu-latest
-    container: fedora:43
+    container: fedora:44
     permissions: write-all
     steps:
       - uses: actions/cache@v4
@@ -27,43 +27,43 @@ jobs:
       - run: df
       - run: dnf install -y dnf-utils rpm-build
       - uses: actions/checkout@v4
-      - run: tar -xpvf e12a1e6baa55ed9f0431cb296aa0cf148f91b615.tar
+      - run: tar -xpvf bbbe59a36cc9291d77759f01d06c989a62b01393.tar
       - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
-      - run: mv 6.10.3-1/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
-      - run: mv 6.10.3-1/* ~/rpmbuild/SOURCES/
+      - run: mv 6.11.1-1/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
+      - run: mv 6.11.1-1/* ~/rpmbuild/SOURCES/
       - run: patch ~/rpmbuild/SPECS/qt6-qtwebengine.spec qt6-qtwebengine.spec.diff
       - run: dnf install -y wget
-      - run: wget https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.10/6.10.3/submodules/qtwebengine-everywhere-src-6.10.3.tar.xz
+      - run: wget https://mirrors.20i.com/pub/qt.io/official_releases/qt/6.11/6.11.1/submodules/qtwebengine-everywhere-src-6.11.1.tar.xz
       - run: cp ~/rpmbuild/SOURCES/clean_qtwebengine.sh ~/rpmbuild/SOURCES/*.py .
       - run: dnf install -y perl
       - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
       - name: T1
         if: ${{ steps.cache-bin.outputs.cache-hit != 'true' }}
-        run: ./clean_qtwebengine.sh 6.10.3
+        run: ./clean_qtwebengine.sh 6.11.1
       - run: rm -f qtwebengine-everywhere-src-6.8.1.tar.xz
       - run: cp *.patch ~/rpmbuild/SOURCES/
       - run: mkdir -p cached
       - name: T2
         if: ${{ steps.cache-bin.outputs.cache-hit != 'true' }}
-        run: cp -p qtwebengine-everywhere-src-6.10.3-clean.tar.xz cached
-      - run: mv -f qtwebengine-everywhere-src-6.10.3-clean.tar.xz ~/rpmbuild/SOURCES/
+        run: cp -p qtwebengine-everywhere-src-6.11.1-clean.tar.xz cached
+      - run: mv -f qtwebengine-everywhere-src-6.11.1-clean.tar.xz ~/rpmbuild/SOURCES/
 
   fedora-job:
     runs-on: ubuntu-latest
     needs: pre-fedora-job
-    container: fedora:43
+    container: fedora:44
     permissions: write-all
     steps:
       - run: cat /etc/os-release
       - run: df
       - run: dnf install --refresh -y dnf-utils rpm-build nodejs
       - uses: actions/checkout@v4
-      - run: tar -xpvf e12a1e6baa55ed9f0431cb296aa0cf148f91b615.tar
+      - run: tar -xpvf bbbe59a36cc9291d77759f01d06c989a62b01393.tar
       - run: mkdir -p ~/rpmbuild/SPECS/ ~/rpmbuild/SOURCES/
-      - run: dnf builddep -y 6.10.3-1/qt6-qtwebengine.spec
+      - run: dnf builddep -y 6.11.1-1/qt6-qtwebengine.spec
       - run: dnf update -y
-      - run: mv 6.10.3-1/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
-      - run: mv 6.10.3-1/* ~/rpmbuild/SOURCES/
+      - run: mv 6.11.1-1/qt6-qtwebengine.spec ~/rpmbuild/SPECS/
+      - run: mv 6.11.1-1/* ~/rpmbuild/SOURCES/
       - run: mv pulseaudio-12.2-headers.tar.gz ~/rpmbuild/SOURCES/
       - uses: actions/cache/restore@v4
         with:
@@ -74,7 +74,7 @@ jobs:
       - run: cp ~/rpmbuild/SOURCES/*.sh ~/rpmbuild/SOURCES/*.py .
       - run: perl -pi -e "s(.+openh264.+)()" clean_qtwebengine.sh
       - run: cp *.patch ~/rpmbuild/SOURCES/
-      - run: mv -f cached/qtwebengine-everywhere-src-6.10.3-clean.tar.xz ~/rpmbuild/SOURCES/
+      - run: mv -f cached/qtwebengine-everywhere-src-6.11.1-clean.tar.xz ~/rpmbuild/SOURCES/
       - run: rpm -qa --queryformat '%{SIZE} %{NAME}\n' | sort -n -r | head -400
       - run: df
       - run: rm -rf /var/cache/PackageKit/*

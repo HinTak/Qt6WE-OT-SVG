@@ -1,19 +1,19 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index e8b11fb..dacd2e0 100644
+index 5784e8e..eda959b 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -88,7 +88,7 @@
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
- Version: 6.10.3
+ Version: 6.11.1
 -Release: 1%{?dist}
 +Release: 1i%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
-@@ -144,6 +144,11 @@ Patch201: qtwebengine-chromium-ppc64.patch
- # https://github.com/google/highway/commit/dcc0ca1cd4245ecff9e5ba50818e47d5e2ccf699
- Patch202: qtwebengine-chromium-ppc64-highway.patch
+@@ -146,6 +146,11 @@ Patch202: qtwebengine-chromium-ppc64-highway.patch
+ # disable musttail attribute for GCC build
+ Patch203: qtwebengine-chromium-ppc64-skia-musttail.patch
  
 +## OT-SVG
 +Patch1000: 0001-m122c-OT-SVG-hook.patch
@@ -21,8 +21,8 @@ index e8b11fb..dacd2e0 100644
 +Patch1002: qtwebengine-6.5.2-filename-too-long.patch
 +
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
- # FIXME use/update qt6_qtwebengine_arches
- # 32-bit arches not supported (https://bugreports.qt.io/browse/QTBUG-102143)
+ ExclusiveArch: %{qt6_qtwebengine_arches}
+ 
 @@ -177,10 +182,10 @@ BuildRequires: git-core
  BuildRequires: qt6-srpm-macros
  BuildRequires: qt6-qtbase-devel
@@ -44,9 +44,9 @@ index e8b11fb..dacd2e0 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -502,6 +508,10 @@ pushd third_party/highway/src
- popd
- popd
+@@ -499,6 +505,10 @@ popd
+ %patch -P202 -p1
+ %patch -P203 -p1
  
 +## OT-SVG
 +%patch -P1000 -F2 -p1 -b .OT-SVG
@@ -55,7 +55,7 @@ index e8b11fb..dacd2e0 100644
  
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
-@@ -553,7 +563,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
+@@ -550,7 +560,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
  . /opt/rh/gcc-toolset-13/enable
  %endif
  export STRIP=strip
