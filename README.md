@@ -16,6 +16,7 @@ Here is the table of the latest patched builds, and their reported chrome versio
 ```
                                	               140.0.7339.264 	                 147.0.7727.138 # v6.12.0-beta2
                                	               140.0.7339.264 	                 147.0.7727.138 # v6.12.0-beta1
+qt6-qtwebengine-6.11.1-1i 6.11.1	Chrome based:  140.0.7339.225 	Chrome patched:  148.0.7778.96  # Qt:  6.11.1     PyQt:  6.11.0
                                	               140.0.7339.264 	                 148.0.7778.96  # v6.11.1  fc44
                                	               140.0.7339.264 	                 146.0.7680.80  # v6.11.0
                                	               140.0.7339.264 	                 145.0.7632.116 # v6.11.0-rc1
