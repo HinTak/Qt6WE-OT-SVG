@@ -44,6 +44,24 @@ and not usable.
 ...
 2026-07-19T22:18:43.4736318Z Wrote: /github/home/rpmbuild/RPMS/x86_64/qt6-qtwebengine-debugsource-6.10.3-1i.fc42.x86_64.rpm
 2026-07-19T22:20:29.1485777Z context canceled
+
+2026-07-21T01:16:09.1527515Z pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
+...
+2026-07-21T07:14:36.7000933Z [1426/2695] /usr/sbin/g++ ...
+2026-07-21T07:14:40.8139693Z context canceled
+2026-07-21T07:14:40.8800644Z ##[error]The operation was canceled.
+
+2026-07-21T09:52:40.0986301Z pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
+...
+2026-07-21T15:51:04.1342278Z [1439/2695] /usr/sbin/g++ ...
+2026-07-21T15:51:07.7229350Z context canceled
+2026-07-21T15:51:07.7486465Z ##[error]The operation was canceled.
+
+2026-07-21T16:41:27.0972508Z pushd ~/rpmbuild/SPECS && rpmbuild -bb --noclean qt6-qtwebengine.spec && popd
+...
+2026-07-21T22:40:02.6356906Z [1412/2695] /usr/sbin/g++ ...
+2026-07-21T22:40:10.7054263Z context canceled
+2026-07-21T22:40:10.7212246Z ##[error]The operation was canceled.
 ```
 
 `Qt6WE-OT-SVG-0.33-6.10.3-1` first run was unsuccessful (2nd run okay):
