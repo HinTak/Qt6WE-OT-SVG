@@ -1,19 +1,19 @@
 diff --git a/qt6-qtwebengine.spec b/qt6-qtwebengine.spec
-index 5784e8e..eda959b 100644
+index 4dcf861..09d3bc9 100644
 --- a/qt6-qtwebengine.spec
 +++ b/qt6-qtwebengine.spec
 @@ -88,7 +88,7 @@
  Summary: Qt6 - QtWebEngine components
  Name:    qt6-qtwebengine
- Version: 6.11.1
--Release: 1%{?dist}
-+Release: 1i%{?dist}
+ Version: 6.11.2
+-Release: 2%{?dist}
++Release: 2j%{?dist}
  
  # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
  # See also http://qt-project.org/doc/qt-5.0/qtdoc/licensing.html
-@@ -146,6 +146,11 @@ Patch202: qtwebengine-chromium-ppc64-highway.patch
- # disable musttail attribute for GCC build
- Patch203: qtwebengine-chromium-ppc64-skia-musttail.patch
+@@ -153,6 +153,11 @@ Patch205: qtwebengine-chromium-ppc64-libvpx.patch
+ # update for libaom from chromium 150
+ Patch206: qtwebengine-chromium-ppc64-libaom.patch
  
 +## OT-SVG
 +Patch1000: 0001-m122c-OT-SVG-hook.patch
@@ -23,7 +23,7 @@ index 5784e8e..eda959b 100644
  # handled by qt6-srpm-macros, which defines %%qt6_qtwebengine_arches
  ExclusiveArch: %{qt6_qtwebengine_arches}
  
-@@ -177,10 +182,10 @@ BuildRequires: git-core
+@@ -184,10 +189,10 @@ BuildRequires: git-core
  BuildRequires: qt6-srpm-macros
  BuildRequires: qt6-qtbase-devel
  BuildRequires: qt6-qtbase-private-devel
@@ -36,7 +36,7 @@ index 5784e8e..eda959b 100644
  BuildRequires: qt6-qtdeclarative-devel
  BuildRequires: qt6-qtlocation-devel
  BuildRequires: qt6-qtsensors-devel
-@@ -472,6 +477,7 @@ Requires: qt6-qtsvg%{?_isa}
+@@ -479,6 +484,7 @@ Requires: qt6-qtsvg%{?_isa}
  
  %prep
  %setup -q -n %{qt_module}-everywhere-src-%{qt_version}%{?prerelease:-%{prerelease}} -a20
@@ -44,9 +44,9 @@ index 5784e8e..eda959b 100644
  
  mv pulse src/3rdparty/chromium/
  
-@@ -499,6 +505,10 @@ popd
- %patch -P202 -p1
- %patch -P203 -p1
+@@ -512,6 +518,10 @@ pushd src/3rdparty/chromium
+ %patch -P206 -p1
+ popd
  
 +## OT-SVG
 +%patch -P1000 -F2 -p1 -b .OT-SVG
@@ -55,7 +55,7 @@ index 5784e8e..eda959b 100644
  
  # delete all "toolprefix = " lines from build/toolchain/linux/BUILD.gn, as we
  # never cross-compile in native Fedora RPMs, fixes ARM and aarch64 FTBFS
-@@ -550,7 +560,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
+@@ -563,7 +573,7 @@ src/3rdparty/chromium/build/linux/unbundle/replace_gn_files.py --system-librarie
  . /opt/rh/gcc-toolset-13/enable
  %endif
  export STRIP=strip
